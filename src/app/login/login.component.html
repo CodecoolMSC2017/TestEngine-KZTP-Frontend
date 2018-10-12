@@ -1,0 +1,13 @@
+<div id="logincontainer">Username:<br>
+<form>
+<input [(ngModel)]="loginDetails.username" type="text" name="username">
+<br>
+Password:<br>
+<input type="password" [(ngModel)]="loginDetails.password" name="pass" placeholder="Password">
+<br>
+<button (click)="getAuth()">Log in</button>
+</form>
+<span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+</div>
+
+
