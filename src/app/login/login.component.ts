@@ -31,7 +31,9 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private ngZone: NgZone) {}
+    private ngZone: NgZone) {
+      this.authService.getAuth().subscribe();
+    }
 
   ngOnInit():void {
   }

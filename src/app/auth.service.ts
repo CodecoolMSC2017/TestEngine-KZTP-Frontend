@@ -19,7 +19,7 @@ export class AuthService {
           'Authorization': 'Basic ' + window.btoa(loginDetails.username + ':' + loginDetails.password)
       });
     }
-    return this.http.post<User>('/api/auth', httpOptions);
+    return this.http.get<User>('/api/auth', httpOptions);
   }
   deleteAuth(): Observable<void> {
     return this.http.delete<void>('/api/auth');
