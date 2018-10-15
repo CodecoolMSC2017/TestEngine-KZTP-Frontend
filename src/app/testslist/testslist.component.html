@@ -1,0 +1,8 @@
+<div *ngFor="let test of tests">
+  {{test.id}}
+  {{test.title}}
+  {{test.description}}
+</div>
+<div class="pagination" *ngFor = "let num of pages">
+  <a (click)="goto(num)">{{num}}</a>
+</div>
