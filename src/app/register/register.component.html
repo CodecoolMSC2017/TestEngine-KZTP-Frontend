@@ -1,0 +1,14 @@
+<div id="registercontainer">
+  <h1>Register</h1>
+  <form>
+  <input [(ngModel)]="registerDetails.email" type="email" name="email" placeholder="E-mail"><br>
+  <input [(ngModel)]="registerDetails.username" type="text" name="username" placeholder="Username"><br>
+  <input type="password" [(ngModel)]="registerDetails.password" name="pass" placeholder="Password"><br>
+  <input type="password" [(ngModel)]="registerDetails.confirmationPassword" name="pass" placeholder="Password"><br>
+  <button (click)="register()">Register</button>
+  <div id="remember-container">
+      <span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+      <span id="forgotten"><a routerLink="/login" routerLinkActive="active">Click here to log in</a></span>
+  </div>
+</form>
+</div>
