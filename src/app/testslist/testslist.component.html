@@ -4,5 +4,5 @@
   {{test.description}}
 </div>
 <div class="pagination" *ngFor = "let num of pages">
-  <a (click)="goto(num)">{{num}}</a>
+  <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>
 </div>
