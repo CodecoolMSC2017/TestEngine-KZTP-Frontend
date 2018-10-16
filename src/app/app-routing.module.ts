@@ -9,6 +9,7 @@ import { PoollistComponent } from './poollist/poollist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { LoginGuard } from './login.guard';
 import { TestdetailsComponent } from './testdetails/testdetails.component';
+import { TestcreateComponent } from './testcreate/testcreate.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -18,6 +19,7 @@ const routes: Routes = [
   {path: 'pool',component: PoollistComponent,canActivate: [LoginGuard]},
   {path: 'user/:id', component: ProfileComponent, canActivate: [LoginGuard]},
   {path: 'test/:id', component: TestdetailsComponent, canActivate: [LoginGuard]},
+  {path: 'newtest', component: TestcreateComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/home' ,pathMatch:'full'}
 ];
 

@@ -13,6 +13,7 @@ import { PoollistComponent } from './poollist/poollist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TestdetailsComponent } from './testdetails/testdetails.component';
+import { TestcreateComponent } from './testcreate/testcreate.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { TestdetailsComponent } from './testdetails/testdetails.component';
     PoollistComponent,
     ProfileComponent,
     NavigationComponent,
-    TestdetailsComponent
+    TestdetailsComponent,
+    TestcreateComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,32 @@
+<h1>Test creation</h1>
+Title: <input [(ngModel)]="test.title" type="text" placeholder="Title"><br>
+Description: <input [(ngModel)]="test.description" type="textarea" placeholder="Description....."><br>
+Price: <input [(ngModel)]="test.price" type = "number">
+Max Points <input [(ngModel)]="test.maxPoints" type = "number">
+
+
+<h1>Add question</h1>
+<div id ="add-question">
+  Text: <input [(ngModel)]="currentQuestion.text" type ="text" placeholder="Text..">
+  <h1>Add choice</h1>
+  <div id = "add-choice">
+    Text: <input [(ngModel)]="currentChoice.text" type ="text" placeholder="Choice.....">
+    <br>
+    <input type ="button" value = "Add Choice" (click) = "createChoice()">
+  </div>
+  Select answer:
+  <select id="choices" name="answer" [(ngModel)] = "currentQuestion.answer">
+    <option *ngFor="let choice of choices" [value]="choice.text">{{choice.text}}</option>
+  </select>
+  <br>
+  <input type = "button" value ="Add question" (click) = "createQuestion()">
+</div>
+<h2>Added questions</h2>
+<div id = "questions" *ngFor ="let question of questions">
+  {{question.text}}
+  <ul *ngFor = "let choice of question.choices">
+    <li>{{choice.text}}</li>
+  </ul>
+</div>
+<br>
+<input type="button" value="Create test" (click) = "createTest()">
