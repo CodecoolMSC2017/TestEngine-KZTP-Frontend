@@ -6,4 +6,5 @@ export class NewTest{
     price: number;
     maxPoints: number;
     questions: Question[];
+    type: string;
 }

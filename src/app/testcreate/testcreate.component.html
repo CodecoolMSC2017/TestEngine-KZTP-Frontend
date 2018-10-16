@@ -2,7 +2,8 @@
 Title: <input [(ngModel)]="test.title" type="text" placeholder="Title"><br>
 Description: <input [(ngModel)]="test.description" type="textarea" placeholder="Description....."><br>
 Price: <input [(ngModel)]="test.price" type = "number">
-Max Points <input [(ngModel)]="test.maxPoints" type = "number">
+Max Points: <input [(ngModel)]="test.maxPoints" type = "number"><br>
+Type: <input [(ngModel)]="test.type" type = "text">
 
 
 <h1>Add question</h1>
@@ -11,6 +12,9 @@ Max Points <input [(ngModel)]="test.maxPoints" type = "number">
   <h1>Add choice</h1>
   <div id = "add-choice">
     Text: <input [(ngModel)]="currentChoice.text" type ="text" placeholder="Choice.....">
+    <span *ngIf = "showChoiceError">
+      {{choiceError}}
+    </span>
     <br>
     <input type ="button" value = "Add Choice" (click) = "createChoice()">
   </div>
@@ -18,6 +22,9 @@ Max Points <input [(ngModel)]="test.maxPoints" type = "number">
   <select id="choices" name="answer" [(ngModel)] = "currentQuestion.answer">
     <option *ngFor="let choice of choices" [value]="choice.text">{{choice.text}}</option>
   </select>
+  <span *ngIf = "showQuestionError">
+    {{questionError}}
+  </span>
   <br>
   <input type = "button" value ="Add question" (click) = "createQuestion()">
 </div>
@@ -28,5 +35,8 @@ Max Points <input [(ngModel)]="test.maxPoints" type = "number">
     <li>{{choice.text}}</li>
   </ul>
 </div>
+<span *ngIf = "showTestError">
+  {{testError}}
+</span>
 <br>
 <input type="button" value="Create test" (click) = "createTest()">

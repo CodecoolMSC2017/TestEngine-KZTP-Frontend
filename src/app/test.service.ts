@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Test } from './Test';
+import { NewTest } from './newTest';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,8 @@ export class TestService {
   }
   getTest(id: number): Observable<Test>{
     return this.http.get<Test>("/api/test/"+id);
+  }
+  createTest(test: NewTest){
+    return this.http.post<void>("/api/user/test/newtest",test);
   }
 }

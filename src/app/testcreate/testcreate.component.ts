@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Test } from '../Test';
 import { Question } from '../question';
 import { Choice } from '../choice';
+import { NewTest } from '../newTest';
+import { TestService } from '../test.service';
 
 @Component({
   selector: 'app-testcreate',
@@ -15,11 +17,25 @@ export class TestcreateComponent implements OnInit {
   currentQuestion: Question = new Question;
   currentChoice: Choice = new Choice;
 
-  constructor() { }
+  questionError: string;
+  choiceError: string;
+  testError: string;
+
+  showQuestionError: boolean = false;
+  showChoiceError: boolean = false;
+  showTestError: boolean = false;
+
+  constructor(private testService: TestService) { }
 
   ngOnInit() {
   }
   private addToChoices(choice: Choice){
+    if(choice.text == undefined){
+        this.choiceError = "Please fill the fields!"
+        this.showChoiceError = true;
+      return;
+    }
+    console.log(choice.text)
     this.choices.push(choice);
   }
   createQuestion(){
@@ -30,15 +46,36 @@ export class TestcreateComponent implements OnInit {
     question.answer = this.currentQuestion.answer;
     this.addToQuestions(question);
     this.choices = new Array;
+
   }
   createChoice(){
     let choice: Choice = new Choice;
     choice.text = this.currentChoice.text;
-    console.log(this.currentChoice.text);
     this.addToChoices(choice);
   }
+  createTest(){
+    let newTest: NewTest = new NewTest;
+    newTest.description = this.test.description;
+    newTest.maxPoints = this.test.maxPoints;
+    newTest.price = this.test.price;
+    newTest.questions = this.questions;
+    newTest.title = this.test.title;
+    newTest.type = this.test.type;
+    if(newTest.title == undefined || newTest.description == undefined || newTest.price < 0 || 
+    newTest.questions.length == 0 || newTest.title == undefined || newTest.type == undefined){
+      this.testError = "Please fill the fields"
+      this.showTestError = true;
+      return;
+    }
+
+    this.testService.createTest(newTest).subscribe();
+  }
   private addToQuestions(question: Question){
-    console.log(this.currentQuestion.text);
+    if(question.answer == null || question.choices.length == 0 || question.text == undefined){
+      this.questionError = "Please fill the fields";
+      this.showQuestionError = true;
+      return;
+    }
     this.questions.push(question);
   }
 
