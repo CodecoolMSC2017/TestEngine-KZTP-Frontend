@@ -69,6 +69,7 @@ export class TestcreateComponent implements OnInit {
     }
 
     this.testService.createTest(newTest).subscribe();
+    this.emptyTest();
   }
   private addToQuestions(question: Question){
     if(question.answer == null || question.choices.length == 0 || question.text == undefined){
@@ -77,6 +78,17 @@ export class TestcreateComponent implements OnInit {
       return;
     }
     this.questions.push(question);
+  }
+  private emptyTest(){
+    this.test = new Test;
+    this.questions = new Array;
+    this.choices = new Array;
+    this.currentQuestion = new Question;
+    this.currentChoice = new Choice;
+
+    this.showQuestionError = false;
+    this.showChoiceError = false;
+    this.showTestError= false;
   }
 
 }
