@@ -10,6 +10,8 @@ import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { TestslistComponent } from './testslist/testslist.component';
 import { PoollistComponent } from './poollist/poollist.component';
+import { ProfileComponent } from './profile/profile.component';
+import { NavigationComponent } from './navigation/navigation.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,9 @@ import { PoollistComponent } from './poollist/poollist.component';
     HomeComponent,
     RegisterComponent,
     TestslistComponent,
-    PoollistComponent
+    PoollistComponent,
+    ProfileComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

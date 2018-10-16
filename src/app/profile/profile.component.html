@@ -1,0 +1,11 @@
+<div *ngIf="user">
+  <div id = "user-details">
+    {{user.username}}
+    {{user.email}}
+  </div>
+  <p>{{user.username}} 's tests</p>
+  <div id = "user-tests" *ngFor="let test of tests">
+    {{test.title}}
+    {{test.description}}
+  </div>
+</div>
