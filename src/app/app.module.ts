@@ -9,6 +9,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { TestslistComponent } from './testslist/testslist.component';
+import { PoollistComponent } from './poollist/poollist.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { TestslistComponent } from './testslist/testslist.component';
     LoginComponent,
     HomeComponent,
     RegisterComponent,
-    TestslistComponent
+    TestslistComponent,
+    PoollistComponent
   ],
   imports: [
     BrowserModule,

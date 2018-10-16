@@ -12,4 +12,7 @@ export class TestService {
   getAllTest(page: number){
     return this.http.get<any>("/api/test/all?page="+page);
   }
+  getPoolTests(page: number){
+    return this.http.get<any>("/api/user/test/pool?page="+page);
+  }
 }
