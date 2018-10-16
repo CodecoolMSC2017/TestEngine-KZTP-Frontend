@@ -12,6 +12,7 @@ import { TestslistComponent } from './testslist/testslist.component';
 import { PoollistComponent } from './poollist/poollist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigationComponent } from './navigation/navigation.component';
+import { TestdetailsComponent } from './testdetails/testdetails.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { NavigationComponent } from './navigation/navigation.component';
     TestslistComponent,
     PoollistComponent,
     ProfileComponent,
-    NavigationComponent
+    NavigationComponent,
+    TestdetailsComponent
   ],
   imports: [
     BrowserModule,

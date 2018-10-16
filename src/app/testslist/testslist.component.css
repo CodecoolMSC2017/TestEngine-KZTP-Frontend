@@ -12,3 +12,7 @@
 .pagination a:hover{
     cursor: pointer;
 }
+
+.test-list :hover{
+    cursor: pointer;
+}

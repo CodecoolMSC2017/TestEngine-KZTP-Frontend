@@ -19,4 +19,7 @@ export class TestService {
   getTestsForUser(username: string):Observable<Test[]>{
     return this.http.get<Test[]>("/api/user/tests/"+username);
   }
+  getTest(id: number): Observable<Test>{
+    return this.http.get<Test>("/api/test/"+id);
+  }
 }
