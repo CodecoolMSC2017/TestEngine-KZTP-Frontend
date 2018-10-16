@@ -1,4 +1,4 @@
-<div *ngFor="let test of tests">
+<div *ngFor="let test of tests" routerLink = "/test/{{test.id}}">
   {{test.id}}
   {{test.title}}
   {{test.description}}

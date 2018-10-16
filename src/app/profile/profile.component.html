@@ -4,7 +4,7 @@
     {{user.email}}
   </div>
   <p>{{user.username}} 's tests</p>
-  <div id = "user-tests" *ngFor="let test of tests">
+  <div id = "user-tests" routerLink = "/test/{{test.id}}" *ngFor="let test of tests">
     {{test.title}}
     {{test.description}}
   </div>
