@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { TestdetailsComponent } from './testdetails/testdetails.component';
 import { TestcreateComponent } from './testcreate/testcreate.component';
+import { TaketestComponent } from './taketest/taketest.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { TestcreateComponent } from './testcreate/testcreate.component';
     ProfileComponent,
     NavigationComponent,
     TestdetailsComponent,
-    TestcreateComponent
+    TestcreateComponent,
+    TaketestComponent
   ],
   imports: [
     BrowserModule,

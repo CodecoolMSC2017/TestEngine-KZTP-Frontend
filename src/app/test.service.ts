@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Test } from './Test';
 import { NewTest } from './newTest';
+import { Question } from './question';
+import { UserSolution } from './usersolution';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +27,11 @@ export class TestService {
   }
   createTest(test: NewTest){
     return this.http.post<void>("/api/user/test/newtest",test);
+  }
+  getQuestions(testId: number): Observable<Question[]>{
+    return this.http.get<Question[]>("/api/user/test/taketest/"+testId);
+  }
+  sendSolution(userSolution: UserSolution): Observable<number>{
+    return this.http.post<number>("/api/user/test/sendsolution",userSolution);
   }
 }

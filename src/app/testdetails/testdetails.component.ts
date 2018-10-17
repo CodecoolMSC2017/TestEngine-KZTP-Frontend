@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Test } from '../Test';
 import { TestService } from '../test.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-testdetails',
@@ -13,7 +13,7 @@ export class TestdetailsComponent implements OnInit {
 
   test: Test;
   testId: number;
-  constructor(private testService: TestService,private route: ActivatedRoute) {
+  constructor(private testService: TestService,private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.testId = params.id;
     });
@@ -21,6 +21,9 @@ export class TestdetailsComponent implements OnInit {
 
   ngOnInit() {
     this.testService.getTest(this.testId).subscribe(t => this.test = t);
+  }
+  takeTest(){
+    this.router.navigate(['test/take/'+this.testId]);
   }
 
 }

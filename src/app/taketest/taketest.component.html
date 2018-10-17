@@ -1,0 +1,11 @@
+<h1>{{test.title}}</h1>
+<div *ngIf="test" id = "testDiv">
+  <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
+    <h2>{{question.text}}</h2>
+    <div id = "choicesDiv" *ngFor = "let choice of question.choices">
+      <input type ="radio" [name] = i [value] = choice.text (change) = "setChanged($event)" >{{choice.text}}
+    </div>
+  </div>
+  <input type = "button" value="Done" (click) = "takeTest()">
+  <span *ngIf = "showResult">Result: {{testResult}} %</span>
+</div>
