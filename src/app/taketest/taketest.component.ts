@@ -40,10 +40,8 @@ export class TaketestComponent implements OnInit {
   }
 
   takeTest(){
-    console.log("hello");
     let userSolution: UserSolution = new UserSolution;
     let solutions = Array.from( this.solutions.values());
-    console.log(this.solutions.entries());
     userSolution.solutions = solutions;
     userSolution.testId = this.testId;
     
