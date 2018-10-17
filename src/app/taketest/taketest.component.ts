@@ -41,8 +41,7 @@ export class TaketestComponent implements OnInit {
 
   takeTest(){
     let userSolution: UserSolution = new UserSolution;
-    let solutions = Array.from( this.solutions.values());
-    userSolution.solutions = solutions;
+    userSolution.solutions = this.solutions;
     userSolution.testId = this.testId;
     
     this.testService.sendSolution(userSolution).subscribe(t => {

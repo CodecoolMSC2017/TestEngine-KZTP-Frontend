@@ -1,4 +1,4 @@
 export class UserSolution{
     testId: number;
-    solutions: String[];
+    solutions: Map<number,string>;
 }
