@@ -25,7 +25,7 @@ export class TaketestComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.testId = params.id;
     });
-    
+
    }
 
   ngOnInit() {
@@ -33,7 +33,7 @@ export class TaketestComponent implements OnInit {
     this.testService.getQuestions(this.testId).subscribe(q =>{
       this.questions = q;
     });
-  
+
   }
   setChanged(event){
     this.solutions.set(event.target.name,event.target.value);
@@ -43,7 +43,7 @@ export class TaketestComponent implements OnInit {
     let userSolution: UserSolution = new UserSolution;
     userSolution.solutions = this.solutions;
     userSolution.testId = this.testId;
-    
+
     this.testService.sendSolution(userSolution).subscribe(t => {
       this.testResult = t;
       this.showResult = true;
