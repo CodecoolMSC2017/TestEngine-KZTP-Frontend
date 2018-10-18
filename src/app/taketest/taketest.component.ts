@@ -5,6 +5,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { UserSolution } from '../usersolution';
 import { Solution } from '../solution';
+import { TestResult } from '../testresult';
 
 @Component({
   selector: 'app-taketest',
@@ -18,7 +19,9 @@ export class TaketestComponent implements OnInit {
   questions: Question[];
   solutions: Array<Solution> = new Array;
 
-  testResult: number;
+  showQuestionAnswers: boolean = false;
+
+  testResult: TestResult;
   showResult: boolean = false;
 
   constructor(private testService: TestService,private route: ActivatedRoute) {
@@ -56,6 +59,14 @@ export class TaketestComponent implements OnInit {
       this.testResult = t;
       this.showResult = true;
     });
+  }
+  showAnswers(){
+    if(this.showQuestionAnswers){
+      this.showQuestionAnswers = false;
+    }
+    else{
+      this.showQuestionAnswers = true;
+    }
   }
 
 }

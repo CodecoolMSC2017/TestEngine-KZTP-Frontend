@@ -3,6 +3,6 @@
   <p>Description: {{test.description}}</p>
   <p>Price: {{test.price}}</p>
   <p>Max Points: {{test.maxPoints}}</p>
-  <p>Creator: {{test.creator.username}}</p>
+  <p routerLink = "/user/{{test.creator.username}}">Creator: {{test.creator.username}}</p>
 </div>
 <input type = "button" id = "taketest" value = "Take test" (click) = "takeTest()">

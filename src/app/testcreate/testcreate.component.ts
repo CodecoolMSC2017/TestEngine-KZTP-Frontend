@@ -12,8 +12,10 @@ import { TestService } from '../test.service';
 })
 export class TestcreateComponent implements OnInit {
   test: Test = new Test;
+
   questions: Array<Question> = new Array;
   choices: Array<Choice> = new Array;
+
   currentQuestion: Question = new Question;
   currentChoice: Choice = new Choice;
 
@@ -35,7 +37,6 @@ export class TestcreateComponent implements OnInit {
         this.showChoiceError = true;
       return;
     }
-    console.log(choice.text)
     this.choices.push(choice);
   }
   createQuestion(){
@@ -46,12 +47,15 @@ export class TestcreateComponent implements OnInit {
     question.answer = this.currentQuestion.answer;
     this.addToQuestions(question);
     this.choices = new Array;
+    this.emptyChoice();
+    this.emptyQuestion();
 
   }
   createChoice(){
     let choice: Choice = new Choice;
     choice.text = this.currentChoice.text;
     this.addToChoices(choice);
+    this.emptyChoice();
   }
   createTest(){
     let newTest: NewTest = new NewTest;
@@ -78,6 +82,13 @@ export class TestcreateComponent implements OnInit {
       return;
     }
     this.questions.push(question);
+  }
+  private emptyChoice(){
+    this.currentChoice = new Choice;
+  }
+  private emptyQuestion(){
+    this.currentQuestion.text = null;
+    this.currentQuestion = new Question;
   }
   private emptyTest(){
     this.test = new Test;

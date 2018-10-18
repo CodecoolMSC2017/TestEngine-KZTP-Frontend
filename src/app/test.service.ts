@@ -5,6 +5,7 @@ import { Test } from './Test';
 import { NewTest } from './newTest';
 import { Question } from './question';
 import { UserSolution } from './usersolution';
+import { TestResult } from './testResult';
 
 @Injectable({
   providedIn: 'root'
@@ -31,8 +32,7 @@ export class TestService {
   getQuestions(testId: number): Observable<Question[]>{
     return this.http.get<Question[]>("/api/user/test/taketest/"+testId);
   }
-  sendSolution(userSolution: UserSolution): Observable<number>{
-    console.log(JSON.stringify(userSolution));
-    return this.http.post<number>("/api/user/test/sendsolution",userSolution);
+  sendSolution(userSolution: UserSolution): Observable<TestResult>{
+    return this.http.post<TestResult>("/api/user/test/sendsolution",userSolution);
   }
 }
