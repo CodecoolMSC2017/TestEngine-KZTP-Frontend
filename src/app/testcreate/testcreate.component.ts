@@ -60,7 +60,6 @@ export class TestcreateComponent implements OnInit {
   createTest(){
     let newTest: NewTest = new NewTest;
     newTest.description = this.test.description;
-    newTest.maxPoints = this.test.maxPoints;
     newTest.price = this.test.price;
     newTest.questions = this.questions;
     newTest.title = this.test.title;
