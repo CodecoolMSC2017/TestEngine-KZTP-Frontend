@@ -5,7 +5,7 @@ import { Test } from './Test';
 import { NewTest } from './newTest';
 import { Question } from './question';
 import { UserSolution } from './usersolution';
-import { TestResult } from './testResult';
+import { TestResult } from './testresult';
 
 @Injectable({
   providedIn: 'root'
@@ -50,5 +50,5 @@ export class TestService {
   isTestVoted(testid: number): Observable<boolean>{
     return this.http.get<boolean>("/api/user/test/voted/"+testid)
   }
-  
+
 }
