@@ -39,9 +39,12 @@ export class TaketestComponent implements OnInit {
     let sol: Solution = new Solution;
     sol.id = event.target.name;
     sol.solution = event.target.value;
-    if(!this.solutions.includes(sol)){
-      this.solutions.push(sol);
+    for(let i = 0; i<this.solutions.length; i++){
+      if(this.solutions[i].id == sol.id){
+        this.solutions.splice(i,1);
+      }
     }
+    this.solutions.push(sol);
   }
 
   takeTest(){
