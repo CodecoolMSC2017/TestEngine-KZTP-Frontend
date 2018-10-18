@@ -2,6 +2,7 @@
   {{test.id}}
   {{test.title}}
   {{test.description}}
+  Rating: {{test.poolRating}}
 </div>
 <div class="pagination" *ngFor = "let num of pages">
   <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>

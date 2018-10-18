@@ -10,7 +10,7 @@ export class Test{
     creator: User;
     enabled: boolean;
     type: string;
-    poolPoints: Object[];
-    testRatings: Object[];
-    usersTests: Object[];
+    live: boolean; 
+    poolRating: number;
+    rating: number;
 }

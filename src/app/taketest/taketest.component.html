@@ -1,5 +1,16 @@
 <div *ngIf="test" id = "testDiv">
   <h1>{{test.title}}</h1>
+  <div *ngIf = "testTaken">
+    You already taken this test, please vote!
+    <div id = "liveDiv" *ngIf = "test.live">
+        <input type = "number" max = 5 [(ngModel)] = "testRating">
+        <input type = "button" value = "Send rate" (click) = "liveRate()">
+      </div>
+      <div id = "poolDiv" *ngIf = "!test.live">
+        <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
+        <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
+      </div>
+  </div>
   <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
     <h2>{{question.text}}</h2>
     <div id = "choicesDiv" *ngFor = "let choice of question.choices">
@@ -9,6 +20,18 @@
   <input type = "button" value="Done" (click) = "takeTest()">
   <div id = "resultsDiv" *ngIf = "showResult">
     Result: {{testResult.percentage}} %
+    <div *ngIf = "!testTaken">
+      <div id = "liveDiv" *ngIf = "test.live">
+        Please rate this test:
+        <input type = "number" max = 5 [(ngModel)] = "testRating">
+        <input type = "button" value = "Send rate" (click) = "liveRate()">
+      </div>
+      <div id = "poolDiv" *ngIf = "!test.live">
+        Please rate this test:
+        <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
+        <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
+      </div>
+    </div>
     <input type = "button" value = "Show answers" (click) = "showAnswers()">
     <div *ngIf ="showQuestionAnswers">
       <div id = "questionResults" *ngFor = "let answer of testResult.solutions">

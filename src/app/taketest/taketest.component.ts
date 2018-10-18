@@ -18,6 +18,9 @@ export class TaketestComponent implements OnInit {
   testId: number;
   questions: Question[];
   solutions: Array<Solution> = new Array;
+  
+  testRating: number;
+  testTaken: boolean = false;
 
   showQuestionAnswers: boolean = false;
 
@@ -36,6 +39,7 @@ export class TaketestComponent implements OnInit {
     this.testService.getQuestions(this.testId).subscribe(q =>{
       this.questions = q;
     });
+    this.testService.isTestDone(this.testId).subscribe(td => this.testTaken = td);
 
   }
   setChanged(event){
@@ -58,6 +62,7 @@ export class TaketestComponent implements OnInit {
     this.testService.sendSolution(userSolution).subscribe(t => {
       this.testResult = t;
       this.showResult = true;
+      this.testTaken = true;
     });
   }
   showAnswers(){
@@ -66,6 +71,17 @@ export class TaketestComponent implements OnInit {
     }
     else{
       this.showQuestionAnswers = true;
+    }
+  }
+  liveRate(){
+    this.testService.sendLiveRate(this.testId,this.testRating).subscribe();
+  }
+  poolRate(event){
+    if(event.target.name == "positive"){
+      this.testService.sendPoolRate(this.testId,"positive").subscribe();
+    }
+    else{
+      this.testService.sendPoolRate(this.testId,"negative").subscribe();
     }
   }
 

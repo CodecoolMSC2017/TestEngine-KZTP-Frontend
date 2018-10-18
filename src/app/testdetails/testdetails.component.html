@@ -3,6 +3,23 @@
   <p>Description: {{test.description}}</p>
   <p>Price: {{test.price}}</p>
   <p>Max Points: {{test.maxPoints}}</p>
+  <div *ngIf = "!test.live">
+    <p>Votes: {{test.poolRating}}</p>
+  </div>
+  <div *ngIf = "test.live">
+    <p>Rating: {{test.rating}}</p>
+  </div>
   <p routerLink = "/user/{{test.creator.username}}">Creator: {{test.creator.username}}</p>
+  <div *ngIf = "testTaken">
+      You already taken this test, please vote!
+      <div id = "liveDiv" *ngIf = "test.live">
+          <input type = "number" max = 5 [(ngModel)] = "testRating">
+          <input type = "button" value = "Send rate" (click) = "liveRate()">
+      </div>
+        <div id = "poolDiv" *ngIf = "!test.live">
+          <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
+          <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
+      </div>
+    </div>
 </div>
 <input type = "button" id = "taketest" value = "Take test" (click) = "takeTest()">
