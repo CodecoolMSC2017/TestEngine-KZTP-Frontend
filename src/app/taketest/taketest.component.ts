@@ -4,7 +4,7 @@ import { TestService } from '../test.service';
 import { ActivatedRoute } from '@angular/router';
 import { Question } from '../question';
 import { UserSolution } from '../usersolution';
-import { User } from '../user';
+import { Solution } from '../solution';
 
 @Component({
   selector: 'app-taketest',
@@ -16,7 +16,7 @@ export class TaketestComponent implements OnInit {
   test: Test;
   testId: number;
   questions: Question[];
-  solutions: Map<number,string> = new Map;
+  solutions: Array<Solution> = new Array;
 
   testResult: number;
   showResult: boolean = false;
@@ -36,7 +36,10 @@ export class TaketestComponent implements OnInit {
   
   }
   setChanged(event){
-    this.solutions.set(event.target.name,event.target.value);
+    let sol: Solution = new Solution;
+    sol.id = event.target.name;
+    sol.solution = event.target.value;
+    this.solutions.push(sol);
   }
 
   takeTest(){
