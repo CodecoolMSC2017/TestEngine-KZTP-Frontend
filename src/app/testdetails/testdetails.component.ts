@@ -16,7 +16,6 @@ export class TestdetailsComponent implements OnInit {
   testTaken: boolean;
   testVoted: boolean;
   testRated: boolean;
-  testRating: number;
   constructor(private testService: TestService,private route: ActivatedRoute, private router: Router) {
     this.route.params.subscribe(params => {
       this.testId = params.id;
@@ -33,8 +32,8 @@ export class TestdetailsComponent implements OnInit {
     this.router.navigate(['test/take/'+this.testId]);
   }
 
-  liveRate(){
-    this.testService.sendLiveRate(this.testId,this.testRating).subscribe();
+  liveRate(value){
+    this.testService.sendLiveRate(this.testId,value).subscribe();
   }
   poolRate(event){
     if(event.target.name == "positive"){

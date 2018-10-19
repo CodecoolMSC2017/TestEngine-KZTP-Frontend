@@ -1,0 +1,63 @@
+/* rating css */
+.rating {
+  width: 130px;
+  height: 10px;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+.rating label {
+  float: right;
+  position: relative;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  margin-right: 7px;
+}
+.rating label:not(:first-of-type) {
+  padding-right: 2px;
+}
+.rating label:before {
+  content: "★";
+  font-size: 26px;
+  color: #CCCCCC;
+  line-height: 1;
+}
+.rating input {
+  display: none;
+}
+.rating input:checked ~ label:before, .rating:not(:checked) > label:hover:before, .rating:not(:checked) > label:hover ~ label:before {
+  color: #F9DF4A;
+}
+/* rating css end*/
+
+.rate p{
+  display: inline-block;
+}
+
+#ratediv {
+  display: inline-block;
+}
+
+#poolDiv{
+  display: inline-block;
+}
+
+
+
+
+
+#detail-page {
+  padding-top:10px;
+  padding-left: 40px;
+  padding-right: 40px;
+}
+
+#creator {
+  float: right;
+}
+
+#description {
+  display: inline-block;
+}
+
+
