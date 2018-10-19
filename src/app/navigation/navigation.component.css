@@ -1,0 +1,26 @@
+ul {
+  margin:0px 0px 50px 0px;
+  background-color: rgb(109, 102, 102);
+  text-align: center;
+  height:40px;
+  box-shadow: 0 8px 6px -6px black;
+  border-radius: 3px 3px;
+
+}
+
+li {
+  display:inline-block;
+  margin:11px 60px;
+}
+
+li :hover {
+  background-color: rgb(95, 89, 89);
+  border-radius: 5px;
+}
+
+li a {
+  color:rgb(255, 246, 246);
+  text-decoration: none;
+  padding:11px;
+  font-weight: bolder;
+}
