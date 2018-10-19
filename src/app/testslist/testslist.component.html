@@ -1,8 +1,10 @@
-<div id="test-list" routerLink = "/test/{{test.id}}"  *ngFor="let test of tests">
-  {{test.id}}
-  {{test.title}}
-  {{test.description}}
-  Rating: {{test.rating}}
+<div id ="tests">
+  <div id="test-list" routerLink = "/test/{{test.id}}"  *ngFor="let test of tests">
+      <div id = "test-id"> {{test.id}}</div>
+      <div id = "test-title">{{test.title}}</div>
+      <div id = "test-desc"> {{test.description}}</div>
+      <div id = "test-rating"> Rating: {{test.rating}}</div>
+  </div>
 </div>
 <div class="pagination" *ngFor = "let num of pages">
   <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>

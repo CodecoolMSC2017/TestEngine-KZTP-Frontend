@@ -12,7 +12,16 @@
 .pagination a:hover{
     cursor: pointer;
 }
-
-.test-list :hover{
-    cursor: pointer;
+#tests{
+    align-content: center;
+}
+#test-list{
+    width: 30vw;
+    margin: auto;
+    margin-bottom: 5px;
+    height: 80px;
+    background-color: #8e8f8f50;
+    text-align: center;
+    line-height: 1;
+    vertical-align: middle;
 }
