@@ -18,7 +18,7 @@ export class TaketestComponent implements OnInit {
   testId: number;
   questions: Question[];
   solutions: Array<Solution> = new Array;
-  
+
   testRating: number;
   testTaken: boolean = false;
 
@@ -26,6 +26,7 @@ export class TaketestComponent implements OnInit {
 
   testResult: TestResult;
   showResult: boolean = false;
+  voted: boolean = false;
 
   constructor(private testService: TestService,private route: ActivatedRoute) {
     this.route.params.subscribe(params => {
@@ -73,15 +74,16 @@ export class TaketestComponent implements OnInit {
       this.showQuestionAnswers = true;
     }
   }
-  liveRate(){
-    this.testService.sendLiveRate(this.testId,this.testRating).subscribe();
+  liveRate(value){
+    this.testService.sendLiveRate(this.testId,value).subscribe(rating =>{this.test.rating = rating;this.voted =true;});
   }
-  poolRate(event){
-    if(event.target.name == "positive"){
-      this.testService.sendPoolRate(this.testId,"positive").subscribe();
+  poolRate(value){
+
+    if(value == "positive"){
+      this.testService.sendPoolRate(this.testId,"positive").subscribe(poolRating => {this.test.poolRating = poolRating;this.voted = true;});
     }
-    else{
-      this.testService.sendPoolRate(this.testId,"negative").subscribe();
+    else if(value == "negative"){
+      this.testService.sendPoolRate(this.testId,"negative").subscribe(poolRating => {this.test.poolRating = poolRating;this.voted = true;});
     }
   }
 

@@ -6,12 +6,6 @@
       <div class="rate" *ngIf = "!test.live">
         <p>Votes: </p><p *ngIf="!testTaken">{{test.poolRating}}</p>
 
-        <!-- <div id = "poolDiv" *ngIf = "!test.live">
-            <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
-            <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
-        </div> -->
-
-
         <div *ngIf = "testTaken" id ="circle" class="vote circle">
           <div class="increment up" (click) = "poolRate('positive')"></div>
           <div class="increment down"  (click) = "poolRate('negative')"></div>
@@ -34,11 +28,6 @@
         </div>
       </div>
 
-      <div>
-
-
-
-      </div>
 
     </div>
     </div>

@@ -1,36 +1,43 @@
 <div *ngIf="test" id = "testDiv">
   <h1>{{test.title}}</h1>
-  <div *ngIf = "testTaken">
-    You already taken this test, please vote!
-    <div id = "liveDiv" *ngIf = "test.live">
-        <input type = "number" max = 5 [(ngModel)] = "testRating">
-        <input type = "button" value = "Send rate" (click) = "liveRate()">
-      </div>
-      <div id = "poolDiv" *ngIf = "!test.live">
-        <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
-        <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
-      </div>
-  </div>
+
   <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
     <h2>{{question.text}}</h2>
     <div id = "choicesDiv" *ngFor = "let choice of question.choices">
       <input type ="radio" [name] = i [value] = choice.text (change) = "setChanged($event)" >{{choice.text}}
     </div>
   </div>
+
   <input type = "button" value="Done" (click) = "takeTest()">
   <div id = "resultsDiv" *ngIf = "showResult">
     Result: {{testResult.percentage}} %
-    <div *ngIf = "!testTaken">
-      <div id = "liveDiv" *ngIf = "test.live">
-        Please rate this test:
-        <input type = "number" max = 5 [(ngModel)] = "testRating">
-        <input type = "button" value = "Send rate" (click) = "liveRate()">
+    <div *ngIf = "testTaken">
+      <div class="rate" *ngIf = "test.live">
+        <p>Please rate this test:</p>
+
+        <div *ngIf = "testTaken" id ="ratediv" class="rating">
+            <input type="radio" id="star5" name="rating" value="5"  (click) = "liveRate(5)"/><label for="star5"></label>
+            <input type="radio" id="star4" name="rating" value="4"  (click) = "liveRate(4)"/><label for="star4"></label>
+            <input type="radio" id="star3" name="rating" value="3"  (click) = "liveRate(3)"/><label for="star3"></label>
+            <input type="radio" id="star2" name="rating" value="2"  (click) = "liveRate(2)"/><label for="star2"></label>
+            <input type="radio" id="star1" name="rating" value="1"  (click) = "liveRate(1)"/><label for="star1"></label>
+        </div>
       </div>
-      <div id = "poolDiv" *ngIf = "!test.live">
-        Please rate this test:
-        <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
-        <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
+
+      <div class="rate" *ngIf = "!test.live">
+        <p>Votes: </p><p *ngIf="!testTaken">{{test.poolRating}}</p>
+
+        <div *ngIf = "testTaken" id ="circle" class="vote circle">
+          <div class="increment up" (click) = "poolRate('positive')"></div>
+          <div class="increment down"  (click) = "poolRate('negative')"></div>
+          <div class="count">{{test.poolRating}}</div>
+
+        </div>
+
+
       </div>
+      <p *ngIf="voted">Thank you for your feedback!</p>
+
     </div>
     <input type = "button" value = "Show answers" (click) = "showAnswers()">
     <div *ngIf ="showQuestionAnswers">
@@ -38,5 +45,6 @@
         {{answer.id}} -  {{answer.solution}}
       </div>
     </div>
+
   </div>
 </div>
