@@ -55,7 +55,7 @@
 .increment.up {
   background: #4BC35F;
   height: 50%;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.1rem;
 }
 .increment.down {
   background: #C15044;
@@ -67,13 +67,14 @@
 
 .count {
   position: absolute;
-  top: 14px;
+  top: 10px;
   left:4px;
   text-align: center;
   width: 1.5rem;
-  font-size: .7rem;
+  font-size: 1rem;
   text-align: center;
   pointer-events: none;
+  font-weight: bold;
 }
 .count.upvoted {
   color: #4BC35F;
