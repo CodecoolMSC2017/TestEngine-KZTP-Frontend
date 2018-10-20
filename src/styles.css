@@ -27,6 +27,7 @@ body{
   text-align: left;
   margin:auto;
   height: 60px;
+  max-height: 120px;
   font-weight: bold;
 }
 
@@ -47,6 +48,7 @@ body{
   left:160px;
   width:14vh;
   height:14vh;
+  max-height:120px;
 
   overflow:hidden;
   transition:background-color 500ms;

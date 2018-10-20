@@ -33,14 +33,15 @@ export class TestdetailsComponent implements OnInit {
   }
 
   liveRate(value){
-    this.testService.sendLiveRate(this.testId,value).subscribe();
+    this.testService.sendLiveRate(this.testId,value).subscribe(rating =>this.test.rating = rating);
   }
-  poolRate(event){
-    if(event.target.name == "positive"){
-      this.testService.sendPoolRate(this.testId,"positive").subscribe();
+  poolRate(value){
+
+    if(value == "positive"){
+      this.testService.sendPoolRate(this.testId,"positive").subscribe(poolRating => this.test.poolRating = poolRating);
     }
-    else{
-      this.testService.sendPoolRate(this.testId,"negative").subscribe();
+    else if(value == "negative"){
+      this.testService.sendPoolRate(this.testId,"negative").subscribe(poolRating => this.test.poolRating = poolRating);
     }
   }
 

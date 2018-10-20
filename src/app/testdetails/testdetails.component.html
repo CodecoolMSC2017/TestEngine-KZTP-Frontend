@@ -1,15 +1,27 @@
-<div id="detail-page">
-  <div id = "test-details" *ngIf = "test">
+<div *ngIf = "test" id="detail-page">
+  <div id = "test-details" >
     <h1>{{test.title}}</h1>
+    <div id="creator" routerLink = "/user/{{test.creator.username}}"><p > Creator: <br>{{test.creator.username}}</p></div>
     <div id="rating">
       <div class="rate" *ngIf = "!test.live">
-        <p>Votes: {{test.poolRating}}</p>
+        <p>Votes: </p><p *ngIf="!testTaken">{{test.poolRating}}</p>
 
-        <div id = "poolDiv" *ngIf = "!test.live">
+        <!-- <div id = "poolDiv" *ngIf = "!test.live">
             <input type = "button" value = "^" name = "positive" (click) = "poolRate($event)">
             <input type = "button" value = "ˇ" name = "negative" (click) = "poolRate($event)">
+        </div> -->
+
+
+        <div *ngIf = "testTaken" id ="circle" class="vote circle">
+          <div class="increment up" (click) = "poolRate('positive')"></div>
+          <div class="increment down"  (click) = "poolRate('negative')"></div>
+          <div class="count">{{test.poolRating}}</div>
+
         </div>
+
+
       </div>
+
       <div class="rate" *ngIf = "test.live">
         <p>Rating: {{test.rating}}</p>
 
@@ -28,15 +40,13 @@
 
       </div>
 
-      </div>
     </div>
-    <div id="description"><p >Description: {{test.description}}</p></div>
+    </div>
 
-    <div id="creator"><p routerLink = "/user/{{test.creator.username}}">Creator: {{test.creator.username}}</p></div>
+    <div id="description"><p >{{test.description}}</p></div>
 
-    <div id="price"><p>Price: {{test.price}}</p></div>
+    <div id="price"><p>Price: {{test.price}} $</p><button id="buy" *ngIf="test.price > 0">Buy</button></div>
 
-    <div id="maxPoints"><p>Max Points: {{test.maxPoints}}</p></div>
 
 
   <input type = "button" id = "taketest" value = "Take test" (click) = "takeTest()">

@@ -39,10 +39,10 @@ export class TestService {
     return this.http.get<boolean>("/api/user/test/taken/"+testId);
   }
   sendPoolRate(testid: number, vote: string){
-    return this.http.post("/api/user/test/vote/"+testid+"/"+vote,null);
+    return this.http.post<number>("/api/user/test/vote/"+testid+"/"+vote,null);
   }
   sendLiveRate(testid: number, rate: number){
-    return this.http.post("/api/user/test/rate/"+testid+"/"+rate,null);
+    return this.http.post<number>("/api/user/test/rate/"+testid+"/"+rate,null);
   }
   isTestRated(testid: number): Observable<boolean>{
     return this.http.get<boolean>("/api/user/test/rated/"+testid)
