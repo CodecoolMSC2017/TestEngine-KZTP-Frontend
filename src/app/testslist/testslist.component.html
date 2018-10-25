@@ -1,9 +1,13 @@
+<h1>List of avaiable tests</h1>
 <div id ="tests">
-  <div id="test-list" routerLink = "/test/{{test.id}}"  *ngFor="let test of tests">
-      <div id = "test-id"> {{test.id}}</div>
-      <div id = "test-title">{{test.title}}</div>
-      <div id = "test-desc"> {{test.description}}</div>
-      <div id = "test-rating"> Rating: {{test.rating}}</div>
+  <div id="test-list" class = "tooltip" routerLink = "/test/{{test.id}}"  *ngFor="let test of tests">
+      <div class="right">
+        <h3>Description</h3>
+        <p>{{test.description}}</p>
+        <i></i>
+      </div>
+      <span id = "test-title" >{{test.title}}</span><br>
+      Rating: {{test.rating}}
   </div>
 </div>
 <div class="pagination" *ngFor = "let num of pages">
