@@ -6,7 +6,7 @@ import { RegisterService } from '../register.service';
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrls: ['./register.component.css']
+  styleUrls: ['../login/login.component.css']
 })
 export class RegisterComponent implements OnInit {
   registerDetails: RegisterDetails = new RegisterDetails();
