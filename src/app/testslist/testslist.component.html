@@ -1,15 +1,23 @@
-<h1>List of avaiable tests</h1>
-<div id ="tests">
-  <div id="test-list" class = "tooltip" routerLink = "/test/{{test.id}}"  *ngFor="let test of tests">
-      <div class="right">
-        <h3>Description</h3>
-        <p>{{test.description}}</p>
-        <i></i>
+
+<div class="testlist">
+    <div  *ngFor="let test of tests" routerLink = "/test/{{test.id}}">
+      <div id="testitem">
+        <div class="title">
+          {{test.title}}
+        </div>
+        <div class="rating">
+          Rating: {{test.rating}}
+        </div>
+        <div class="creator">
+          {{test.creator.username}}
+        </div>
+        <div class="description">
+          {{test.description}}
+        </div>
       </div>
-      <span id = "test-title" >{{test.title}}</span><br>
-      Rating: {{test.rating}}
+
+    </div>
   </div>
-</div>
-<div class="pagination" *ngFor = "let num of pages">
-  <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>
-</div>
+  <div class="pagination" *ngFor = "let num of pages">
+    <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>
+  </div>
