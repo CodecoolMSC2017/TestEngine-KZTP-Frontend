@@ -7,6 +7,10 @@
   margin:5px auto;
 }
 
+#testitem :hover {
+  cursor: pointer;
+}
+
 .title,.description,.rating,.creator {
   display: inline-block;
   margin:5px;
