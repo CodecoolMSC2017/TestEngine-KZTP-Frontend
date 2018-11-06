@@ -1,0 +1,85 @@
+#createside {
+  float:left;
+  width:50%;
+
+  text-align: center;
+}
+
+#previewside {
+  display:inline-block;
+  width:45%;
+  text-align: center;
+  min-height:100vh;
+  height:max-content;
+  border-left:solid 1px black;
+  overflow-y: scroll;
+
+
+}
+
+#previewside::-webkit-scrollbar {
+  display: none;
+}
+
+#add-question {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #000000;
+  border:solid 1px black;
+  width:95%;
+  margin:auto;
+  padding-bottom:20px;
+}
+
+#add-choice {
+  margin-top:20px;
+}
+
+td {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #000000;
+  border:solid 1px black;
+  height:25px;
+  margin:5px auto;
+}
+
+td input {
+  line-height:1.5;
+  width:98%;
+  background-color: #f3f3f3;
+  border:none;
+}
+
+#choiceinput {
+  width:77%;
+}
+
+#addchoicebutton {
+  width: max-content;
+  background-color:lightgray;
+  float:right ;
+  border-radius: 5px;
+  border:solid 1px black;
+}
+
+input:hover[type="button"] {
+  cursor: pointer;
+}
+
+
+td textarea {
+  width:98%;
+  background-color: #f3f3f3;
+  height:98%;
+  border:none;
+}
+
+#description {
+  height: 150px;
+}
+
+table {
+  width: 95%;
+  margin:auto;
+}
