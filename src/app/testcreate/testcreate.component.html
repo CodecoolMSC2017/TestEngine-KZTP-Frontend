@@ -31,9 +31,14 @@
       <tr>
         <td>Add choice</td>
         <td>
-          <input id="choiceinput" [(ngModel)]="currentChoice.text" type ="text" placeholder="Choice.....">
+          <input maxlength="90" id="choiceinput" [(ngModel)]="currentChoice.text" type ="text" placeholder="Choice.....">
           <input id="addchoicebutton" type ="button" value = "Add Choice" (click) = "createChoice()"></td>
       </tr>
+    </table>
+
+    <table>
+      <th *ngIf="currentQuestion.text">{{currentQuestion.text}}</th>
+      <td id="choiceitem" *ngFor="let choice of choices" > {{choice.text}} </td>
     </table>
 
     <div id = "add-choice">
@@ -58,12 +63,14 @@
   <input type="button" value="Create test" (click) = "createTest()">
 </div>
 
-<div id="previewside"><h1>Preview</h1><h2>{{test.title}}</h2>
-  <div id = "questions" *ngFor ="let question of questions">
-    {{question.text}}
-    <ul *ngFor = "let choice of question.choices">
-      <li>{{choice.text}}</li>
-    </ul>
+<div id="previewside"><h1>Preview</h1><h2 *ngIf="test.title">{{test.title}}</h2>
+  <div  id = "questions" *ngFor ="let question of questions" >
+
+    <table>
+      <th *ngIf="question.text">{{question.text}}</th>
+      <td id="choiceitem" *ngFor="let choice of question.choices" > {{choice.text}} </td>
+    </table>
+
   </div>
 </div>
 

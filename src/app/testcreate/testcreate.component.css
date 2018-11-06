@@ -7,7 +7,7 @@
 
 #previewside {
   display:inline-block;
-  width:45%;
+  width:48%;
   text-align: center;
   min-height:100vh;
   height:max-content;
@@ -17,7 +17,7 @@
 
 }
 
-#previewside::-webkit-scrollbar {
+::-webkit-scrollbar {
   display: none;
 }
 
@@ -44,6 +44,27 @@ td {
   margin:5px auto;
 }
 
+h2 {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #000000;
+  border:solid 1px black;
+  width:60%;
+  margin:auto;
+}
+
+th {
+  margin-top:25px;
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #000000;
+  border:solid 1px black;
+  width:100%;
+  text-align: center;
+  display: block;
+  font-size: 25px;
+}
+
 td input {
   line-height:1.5;
   width:98%;
@@ -53,6 +74,15 @@ td input {
 
 #choiceinput {
   width:77%;
+}
+
+#choiceitem {
+  display: inline-block;
+  width:49%;
+  margin-top:2px;
+  margin-bottom:2px;
+  height:50px;
+  overflow-y:scroll;
 }
 
 #addchoicebutton {
