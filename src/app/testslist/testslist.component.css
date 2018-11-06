@@ -1,4 +1,18 @@
-#testitem {
+#searchbar {
+  background-color: #f3f3f3;
+  border-radius: 5px;
+  box-shadow: inset 0 0 3px #000000;
+  border:solid 1px black;
+  margin:5px auto;
+  padding-top: 40px;
+  min-width: 768px;
+  height:60px;
+  padding-left:20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+#testitem,#listheader {
   background-color: #f3f3f3;
   border-radius: 5px;
   box-shadow: inset 0 0 3px #000000;
@@ -7,11 +21,20 @@
   margin:5px auto;
 }
 
+#listheader{
+  background-color: #d8d8d8;
+
+}
+
+#listheader .description ,#listheader .title,#listheader .rating, #listheader .creator {
+  text-align: center !important;
+}
+
 #testitem :hover {
   cursor: pointer;
 }
 
-.title,.description,.rating,.creator {
+.title,.description,.rating,.creator,.price {
   display: inline-block;
   margin:5px;
   overflow: hidden;
@@ -23,8 +46,8 @@
   border-right: black solid 2px;
 }
 
-.rating {
-  width: 10%;
+.rating,.price {
+  width: 4%;
   border-right: black solid 2px;
   text-align: center;
 }
@@ -46,7 +69,7 @@
 }
 
 .description {
-  width: 30%;
+  width: 52%;
 }
 
 .testlist {
@@ -55,3 +78,17 @@
   padding-left:20px;
   padding-right: 20px;
 }
+
+#pager {
+  text-align: center;
+}
+
+.pagination {
+  margin:5px;
+  padding:5px;
+  border-radius:2px;
+  box-shadow: inset 0 0 3px #000000;
+  display: inline-block;
+  background-color: #2d94c4;
+}
+

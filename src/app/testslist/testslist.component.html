@@ -1,23 +1,62 @@
 
-<div class="testlist">
-    <div  *ngFor="let test of tests" routerLink = "/test/{{test.id}}">
-      <div id="testitem">
-        <div class="title">
-          {{test.title}}
-        </div>
-        <div class="rating">
-          Rating: {{test.rating}} <p id="star">★</p>
-        </div>
-        <div class="creator">
-          {{test.creator.username}}
-        </div>
-        <div class="description">
-          {{test.description}}
-        </div>
-      </div>
+<div id="searchbar">
+  <label for="titleinput">Title:</label>
+  <input type="text" name="titleinput">
+  <label for="ratingmin"> Minimum rating:</label>
+  <input type="number"  name="ratingmin" min="0" max="5">
+  <label for="ratingmax"> Maximum rating:</label>
+  <input type="number"  name="ratingmax" min="0" max="5">
+  <label for="pricemax"> Maximum price:</label>
+  <input type="number" name="pricemax" min=0 max="999">
+  <label for="creatorinput">Creator</label>
+  <input type="text" name="creatorinput">
 
+  <input type="button" value="Search">
+
+</div>
+
+<div class="testlist">
+  <div id="listheader">
+    <div class="title">
+      Title
+    </div>
+    <div class="rating">
+      Rating
+    </div>
+    <div class="price">
+      Price
+    </div>
+    <div class="creator">
+      Creator
+    </div>
+    <div class="description">
+      Description
     </div>
   </div>
-  <div class="pagination" *ngFor = "let num of pages">
-    <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>
+
+  <div  *ngFor="let test of tests" routerLink = "/test/{{test.id}}">
+    <div id="testitem">
+      <div class="title">
+        {{test.title}}
+      </div>
+      <div class="rating">
+        {{test.rating}} <p id="star">★</p>
+      </div>
+      <div class="price">
+        {{test.price}} $
+      </div>
+      <div class="creator">
+        {{test.creator.username}}
+      </div>
+      <div class="description">
+        {{test.description}}
+      </div>
+    </div>
+
   </div>
+</div>
+<div id="pager">
+  <div class="pagination" *ngFor = "let num of pages">
+    <a *ngIf="pages.length > 1" (click)="goto(num)">{{num+1}}</a>
+  </div>
+</div>
