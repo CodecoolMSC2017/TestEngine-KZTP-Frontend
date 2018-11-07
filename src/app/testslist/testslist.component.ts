@@ -33,6 +33,14 @@ export class TestslistComponent implements OnInit {
     this.testService.getAllTest(page,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
       this.tests = stuff.content;
       this.totalPages = stuff.totalPages;
+      if (this.pages.length > this.totalPages) {
+        this.pages.splice(-1,this.pages.length -this.totalPages);
+      }
+      else if (this.pages.length < this.totalPages) {
+        for(var i = 0;i < this.totalPages-this.pages.length;i++) {
+          this.pages.push(this.pages.length+i);
+        }
+      }
     })
   }
 
