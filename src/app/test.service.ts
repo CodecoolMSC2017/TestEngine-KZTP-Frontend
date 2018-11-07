@@ -14,8 +14,8 @@ export class TestService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTest(page: number){
-    return this.http.get<any>("/api/test/all?page="+page);
+  getAllTest(page: number,pageSize: number,order: string,orderby:string){
+    return this.http.get<any>("/api/test/all?page="+page+ "&pagesize=" + pageSize + "&order=" + order + "&orderby=" + orderby);
   }
   getPoolTests(page: number){
     return this.http.get<any>("/api/user/test/pool?page="+page);
@@ -49,6 +49,18 @@ export class TestService {
   }
   isTestVoted(testid: number): Observable<boolean>{
     return this.http.get<boolean>("/api/user/test/voted/"+testid)
+  }
+
+  getAllTestOrderedByTitle(order: string) {
+    return this.http.get<any>("/api/test/orderedbytitle?order="+ order+"?page=0");
+  }
+
+  getAllTestOrderedByRating(order: string) {
+    return this.http.get<any>("/api/test/orderedbyrating?order="+ order+"?page=0");
+  }
+
+  getAllTestOrderedByPrice(order: string) {
+    return this.http.get<any>("/api/test/orderedbyprice?order="+ order+"?page=0");
   }
 
 }

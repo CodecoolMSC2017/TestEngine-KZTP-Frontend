@@ -16,14 +16,22 @@
 </div>
 
 <div class="testlist">
+  <div id="itemAmountButtons">
+    Items per page:
+    <button id="amountbutton" (click)="setPagesize(10)">10</button>
+    <button id="amountbutton" (click)="setPagesize(20)">20</button>
+    <button id="amountbutton" (click)="setPagesize(50)">50</button>
+    <button id="amountbutton" (click)="setPagesize(100)">100</button>
+  </div>
+
   <div id="listheader">
-    <div class="title">
+    <div class="title" (click)="orderByTitle()">
       Title
     </div>
-    <div class="rating">
+    <div class="rating" (click)="orderByRating()" >
       Rating
     </div>
-    <div class="price">
+    <div class="price" (click)="orderByPrice()">
       Price
     </div>
     <div class="creator">
@@ -55,8 +63,8 @@
 
   </div>
 </div>
-<div id="pager">
-  <div class="pagination" *ngFor = "let num of pages">
-    <a *ngIf="pages.length > 1" (click)="goto(num)">{{num+1}}</a>
+<div *ngIf="pages.length > 1" id="pager">
+  <div class="pagination" (click)="goto(num)" *ngFor = "let num of pages">
+    <a  >{{num+1}}</a>
   </div>
 </div>

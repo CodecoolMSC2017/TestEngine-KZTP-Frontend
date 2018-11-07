@@ -52,6 +52,10 @@
   text-align: center;
 }
 
+.price:hover, .rating:hover, .title:hover {
+  cursor: pointer;
+}
+
 #star {
   display: inline-block;
   content: "★";
