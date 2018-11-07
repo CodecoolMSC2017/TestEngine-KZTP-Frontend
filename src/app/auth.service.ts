@@ -9,8 +9,11 @@ import { isUndefined } from 'util';
   providedIn: 'root'
 })
 export class AuthService {
+  isLoggedIn: boolean;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    this.isLoggedIn = false;
+  }
 
   getAuth(loginDetails?: LoginDetails): Observable<User> {
     const httpOptions = {};

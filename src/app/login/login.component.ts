@@ -17,7 +17,10 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   handleAuthSuccess = user => {
-    this.ngZone.run(() => this.router.navigate(['advertisements']));
+    this.ngZone.run(() =>{ 
+      this.authService.isLoggedIn = true;
+      this.router.navigate(['tests']);
+    });
   };
   handleAuthError = error => {
     if (error.status == 401) {
@@ -32,7 +35,9 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private ngZone: NgZone) {
+
       this.authService.getAuth().subscribe();
+
     }
 
   ngOnInit():void {
