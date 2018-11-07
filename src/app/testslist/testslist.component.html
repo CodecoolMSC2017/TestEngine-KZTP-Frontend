@@ -1,4 +1,3 @@
-
 <div id="searchbar">
   <label for="titleinput">Title:</label>
   <input type="text" name="titleinput">
@@ -64,7 +63,12 @@
   </div>
 </div>
 <div *ngIf="pages.length > 1" id="pager">
-  <div class="pagination" (click)="goto(num)" *ngFor = "let num of pages">
-    <a  >{{num+1}}</a>
+  <a *ngIf="currentPage > 0" class="pagination" (click)="goto(currentPage-1)"> < </a>
+  <div id="paginationlist" *ngFor = "let num of pages">
+    <div *ngIf="num > currentPage -3 && num < currentPage + 3" [ngStyle]="{'background-color': num == currentPage ? '#2785b1' : '#34aee7' }" class="pagination" (click)="goto(num)" >
+      <a >{{num+1}}</a>
+    </div>
   </div>
+  <a *ngIf="currentPage < pages.length-1" class="pagination" (click)="goto(currentPage+1)"> > </a>
 </div>
+

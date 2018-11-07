@@ -18,10 +18,11 @@ export class TestslistComponent implements OnInit {
   pageSize:number =10
   order:string = "asc";
   orderBy:string = "";
+  currentPage:number = 0;
   constructor(private testService: TestService) { }
 
   ngOnInit() {
-    this.testService.getAllTest(0,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
+    this.testService.getAllTest(this.currentPage,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
       this.tests = stuff.content;
       this.totalPages = stuff.totalPages;
       for(var i = 0 ; i < stuff.totalPages ; i++){
@@ -30,17 +31,15 @@ export class TestslistComponent implements OnInit {
     })
   }
   goto(page: number){
+    this.currentPage = page;
     this.testService.getAllTest(page,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
       this.tests = stuff.content;
       this.totalPages = stuff.totalPages;
-      if (this.pages.length > this.totalPages) {
-        this.pages.splice(-1,this.pages.length -this.totalPages);
+      this.pages=[];
+      for(var i = 0 ; i < stuff.totalPages ; i++){
+        this.pages.push(i);
       }
-      else if (this.pages.length < this.totalPages) {
-        for(var i = 0;i < this.totalPages-this.pages.length;i++) {
-          this.pages.push(this.pages.length+i);
-        }
-      }
+
     })
   }
 
