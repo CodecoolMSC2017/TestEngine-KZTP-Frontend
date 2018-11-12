@@ -1,10 +1,24 @@
 <div *ngIf="test" id = "testDiv">
   <h1>{{test.title}}</h1>
 
-  <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
+ <!--  <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
     <h2>{{question.text}}</h2>
     <div id = "choicesDiv" *ngFor = "let choice of question.choices">
       <input type ="radio" [name] = i [value] = choice.text (change) = "setChanged($event)" >{{choice.text}}
+    </div>
+  </div>
+ -->
+  <div id="previewside"><h2 *ngIf="test.title">{{test.title}}</h2>
+    <div  id = "questions" *ngFor ="let question of questions;let i = index" >
+      <table>
+        <th *ngIf="question.text">{{question.text}}</th>
+        <td id="choiceitem" *ngFor="let choice of question.choices" >
+          <label id="choicelabel">
+            <input id="choiceRadio" type ="radio" [name] = i [value] = choice.text (change) = "setChanged($event)" >
+            <span>{{choice.text}}</span>
+          </label>
+        </td>
+      </table>
     </div>
   </div>
 
