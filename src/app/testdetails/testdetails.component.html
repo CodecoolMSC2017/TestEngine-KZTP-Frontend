@@ -1,7 +1,11 @@
 <div *ngIf = "test" id="detail-page">
   <div id = "test-details" >
     <h1>{{test.title}}</h1>
-    <div id="creator" routerLink = "/user/{{test.creator.username}}"><p > Creator: <br>{{test.creator.username}}</p></div>
+    <div id="creator" routerLink = "/user/{{test.creator.username}}"> <p>Created by: {{test.creator.username}}</p></div>
+    
+
+    <div id="description"><p>{{test.description}}</p></div>
+
     <div id="rating">
       <div class="rate" *ngIf = "!test.live">
         <p>Votes: </p><p *ngIf="!testTaken">{{test.poolRating}}</p>
@@ -31,8 +35,6 @@
 
     </div>
     </div>
-
-    <div id="description"><p >{{test.description}}</p></div>
 
     <div id="price"><p>Price: {{test.price}} $</p><button id="buy" *ngIf="test.price > 0">Buy</button></div>
 
