@@ -147,13 +147,25 @@
 }
 
 #creator {
-  float: right;
-  background-color: rgb(241, 239, 239);
-  height:140px;
-  width:130px;
+  background-color: rgb(202, 206, 206);
+  width: 100px;
+  height: 100px;
   text-align: center;
+  margin-top: 10px;
+  border-radius: 50%;
+  margin-bottom: 40px;
+  float: right;
+}
+
+#creator p {
+  position: relative;
+  margin-top: 30px;
+}
+
+#creator :hover{
   cursor: pointer;
 }
+
 
 
 #description {
@@ -173,6 +185,32 @@ h1 {
 #buy {
   display: inline-block;
   margin-left: 5px;
+}
+
+#test-details h1{
+  border: 1px;
+  border-style: double;
+  background: rgb(202, 206, 206);
+  text-align: center;
+}
+
+#description {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+#description:before {
+  color: #ccc;
+  content: open-quote;
+  font-size: 4em;
+  line-height: 0.1em;
+  margin-right: 0.25em;
+  vertical-align: -0.4em;
+}
+#description p {
+  display: inline;
 }
 
 
