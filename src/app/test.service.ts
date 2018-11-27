@@ -14,8 +14,8 @@ export class TestService {
 
   constructor(private http: HttpClient) { }
 
-  getAllTest(page: number,pageSize: number,order: string,orderby:string){
-    return this.http.get<any>("/api/test/all?page="+page+ "&pagesize=" + pageSize + "&order=" + order + "&orderby=" + orderby);
+  getAllTest(page: number,pageSize: number,order: string,orderby:string,live:boolean,title:string,ratingMin:number,ratingMax:number,priceMin:number,priceMax:number){
+    return this.http.get<any>("/api/test/all?page="+page+ "&pagesize=" + pageSize + "&order=" + order + "&orderby=" + orderby + "&live=" + live + "&title=" + title + "&ratingMin=" + ratingMin + "&ratingMax=" + ratingMax + "&priceMin=" + priceMin + "&priceMax=" + priceMax);
   }
   getPoolTests(page: number){
     return this.http.get<any>("/api/user/test/pool?page="+page);

@@ -19,10 +19,16 @@ export class TestslistComponent implements OnInit {
   order:string = "asc";
   orderBy:string = "";
   currentPage:number = 0;
+  live:boolean = true;
+  title:string="";
+  ratingMin:number=0;
+  ratingMax:number = 5;
+  priceMin:number=0;
+  priceMax:number=9999;
   constructor(private testService: TestService) { }
 
   ngOnInit() {
-    this.testService.getAllTest(this.currentPage,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
+    this.testService.getAllTest(this.currentPage,this.pageSize,this.order,this.orderBy,this.live,this.title,this.ratingMin,this.ratingMax,this.priceMin,this.priceMax).subscribe(stuff => {
       this.tests = stuff.content;
       this.totalPages = stuff.totalPages;
       for(var i = 0 ; i < stuff.totalPages ; i++){
@@ -32,7 +38,7 @@ export class TestslistComponent implements OnInit {
   }
   goto(page: number){
     this.currentPage = page;
-    this.testService.getAllTest(page,this.pageSize,this.order,this.orderBy).subscribe(stuff => {
+    this.testService.getAllTest(page,this.pageSize,this.order,this.orderBy,this.live,this.title,this.ratingMin,this.ratingMax,this.priceMin,this.priceMax).subscribe(stuff => {
       this.tests = stuff.content;
       this.totalPages = stuff.totalPages;
       this.pages=[];
@@ -86,5 +92,8 @@ export class TestslistComponent implements OnInit {
     }
 
   }
+
+
+
 
 }
