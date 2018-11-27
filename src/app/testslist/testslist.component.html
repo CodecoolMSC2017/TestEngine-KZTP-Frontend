@@ -1,16 +1,16 @@
 <div id="searchbar">
   <label for="titleinput">Title:</label>
-  <input type="text" name="titleinput">
+  <input type="text" name="titleinput" [(ngModel)]="title">
   <label for="ratingmin"> Minimum rating:</label>
-  <input type="number"  name="ratingmin" min="0" max="5">
+  <input type="number"  name="ratingmin" min="0" max="5" [(ngModel)]="ratingMin">
   <label for="ratingmax"> Maximum rating:</label>
-  <input type="number"  name="ratingmax" min="0" max="5">
+  <input type="number"  name="ratingmax" min="0" max="5" [(ngModel)]="ratingMax">
+  <label for="pricemin"> Minimum price:</label>
+  <input type="number" name="pricemin" min=0 max="999" [(ngModel)]="priceMin">
   <label for="pricemax"> Maximum price:</label>
-  <input type="number" name="pricemax" min=0 max="999">
-  <label for="creatorinput">Creator</label>
-  <input type="text" name="creatorinput">
+  <input type="number" name="pricemax" min=0 max="999" [(ngModel)]="priceMax">
 
-  <input type="button" value="Search">
+  <input type="button" value="Search" (click)="goto(0)">
 
 </div>
 
