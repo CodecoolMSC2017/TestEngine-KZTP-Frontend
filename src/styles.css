@@ -1,10 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body{
-  background-color: rgb(202, 206, 206);
+  background-color: #7fdada;
 }
 
 #container {
-  background-color: white;
+  background-color: #d1dddd;
   width: 80%;
   min-height: 100vh;
   margin:auto;
@@ -16,11 +16,15 @@ body{
 }
 
 #footer {
-  background-color: rgb(109, 102, 102);
+  background-color: #365757;
   height:80px;
   box-shadow:inset 0 8px 6px -6px black;
   border-radius: 3px 3px;
-  margin-top: 150px;
+  width:100%;
+  overflow: hidden;
+  position: absolute;
+  left:0px;
+  margin-top:150px;
 }
 
 #header {
@@ -35,7 +39,7 @@ body{
   margin-top: 50px;
   margin-left:260px;
   font-size: 6vh;
-  color:#2d94c4;
+  color:#365757;
   text-shadow: #161222;
 }
 
@@ -70,7 +74,7 @@ body{
   font-family: Trebuchet MS, sans-serif;
   font-size: 7vh;
   font-weight: bold;
-  color: #3ebffa;
+  color: #0ed8ac;
   text-align: center;
   line-height: 10vh;
 }
@@ -78,7 +82,7 @@ body{
 .loader{
   display:block;
   position:absolute;
-  background-color:#3ebffa;
+  background-color:#4d7561;
 }
 
 /*Pretty complex animation, so each side needs its own @keyframes.*/

@@ -1,6 +1,6 @@
 ul {
   margin:0px 0px 50px 0px;
-  background-color: rgb(109, 102, 102);
+  background-color: #365757;
   text-align: center;
   height:40px;
   box-shadow: 0 8px 6px -6px black;
@@ -14,12 +14,12 @@ li {
 }
 
 li :hover {
-  background-color: rgb(95, 89, 89);
+  background-color: #467474;
   border-radius: 5px;
 }
 
 li a {
-  color:rgb(255, 246, 246);
+  color:#e5f8f8;
   text-decoration: none;
   padding:11px;
   font-weight: bolder;

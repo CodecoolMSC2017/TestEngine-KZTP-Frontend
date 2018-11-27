@@ -10,7 +10,7 @@
   <label for="pricemax"> Maximum price:</label>
   <input type="number" name="pricemax" min=0 max="999" [(ngModel)]="priceMax">
 
-  <input type="button" value="Search" (click)="goto(0)">
+  <input id="searchButton" type="button" value="Search" (click)="goto(0)">
 
 </div>
 
@@ -65,7 +65,7 @@
 <div *ngIf="pages.length > 1" id="pager">
   <a *ngIf="currentPage > 0" class="pagination" (click)="goto(currentPage-1)"> < </a>
   <div id="paginationlist" *ngFor = "let num of pages">
-    <div *ngIf="num > currentPage -3 && num < currentPage + 3" [ngStyle]="{'background-color': num == currentPage ? '#2785b1' : '#34aee7' }" class="pagination" (click)="goto(num)" >
+    <div *ngIf="num > currentPage -3 && num < currentPage + 3" [ngStyle]="{'background-color': num == currentPage ? '#365757' : '#588888' }" class="pagination" (click)="goto(num)" >
       <a >{{num+1}}</a>
     </div>
   </div>
