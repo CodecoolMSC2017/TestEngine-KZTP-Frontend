@@ -1,11 +1,48 @@
+<div id="searchbar">
+  <label for="titleinput">Title:</label>
+  <input type="text" name="titleinput" [(ngModel)]="title">
+
+  <input id="searchButton" type="button" value="Search" (click)="goto(0)">
+
+</div>
+
 <div class="testlist">
+  <div id="itemAmountButtons">
+    Items per page:
+    <button id="amountbutton" (click)="setPagesize(10)">10</button>
+    <button id="amountbutton" (click)="setPagesize(20)">20</button>
+    <button id="amountbutton" (click)="setPagesize(50)">50</button>
+    <button id="amountbutton" (click)="setPagesize(100)">100</button>
+  </div>
+
+  <div id="listheader">
+    <div class="title" (click)="orderByTitle()">
+      Title
+    </div>
+    <div class="rating" (click)="orderByRating()" >
+      Rating
+    </div>
+    <div class="price" (click)="orderByPrice()">
+      Price
+    </div>
+    <div class="creator">
+      Creator
+    </div>
+    <div class="description">
+      Description
+    </div>
+  </div>
+
   <div  *ngFor="let test of tests" routerLink = "/test/{{test.id}}">
     <div id="testitem">
       <div class="title">
         {{test.title}}
       </div>
       <div class="rating">
-        Rating: {{test.poolRating}}
+        {{test.poolRating}} <p id="upvote" *ngIf="test.poolRating > -1" >▲</p> <p id="downvote" *ngIf="test.poolRating < 0" >▼</p>
+      </div>
+      <div class="price">
+        {{test.price}} $
       </div>
       <div class="creator">
         {{test.creator.username}}
@@ -17,6 +54,12 @@
 
   </div>
 </div>
-<div class="pagination" *ngFor = "let num of pages">
-  <a *ngIf="pages.length > 1" (click)="goto(num)">{{num}}</a>
+<div *ngIf="pages.length > 1" id="pager">
+  <a *ngIf="currentPage > 0" class="pagination" (click)="goto(currentPage-1)"> < </a>
+  <div id="paginationlist" *ngFor = "let num of pages">
+    <div *ngIf="num > currentPage -3 && num < currentPage + 3" [ngStyle]="{'background-color': num == currentPage ? '#365757' : '#588888' }" class="pagination" (click)="goto(num)" >
+      <a >{{num+1}}</a>
+    </div>
+  </div>
+  <a *ngIf="currentPage < pages.length-1" class="pagination" (click)="goto(currentPage+1)"> > </a>
 </div>
