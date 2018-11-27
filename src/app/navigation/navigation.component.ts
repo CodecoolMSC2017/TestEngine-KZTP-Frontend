@@ -21,6 +21,7 @@ export class NavigationComponent implements OnInit {
       }
       else{
         this.authService.isLoggedIn = false;
+        this.authService.userRank = "newbie";
       }
     });
 
@@ -31,6 +32,7 @@ export class NavigationComponent implements OnInit {
       .pipe(finalize(() => {
         this.router.navigate(['login']);
         this.authService.isLoggedIn = false;
+        this.authService.userRank = "newbie";
       }
       ))
       .subscribe();

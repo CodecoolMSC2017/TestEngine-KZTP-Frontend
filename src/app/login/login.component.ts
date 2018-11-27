@@ -19,6 +19,9 @@ export class LoginComponent implements OnInit {
   handleAuthSuccess = user => {
     this.ngZone.run(() =>{ 
       this.authService.isLoggedIn = true;
+      this.authService.getAuth().subscribe(u => {
+        this.authService.userRank = u.rank;
+      });
       this.router.navigate(['tests']);
     });
   };
