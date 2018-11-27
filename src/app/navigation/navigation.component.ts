@@ -11,13 +11,13 @@ import { User } from '../user';
 })
 export class NavigationComponent implements OnInit {
 
-  user: User;
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.authService.getAuth().subscribe(u => {
       if(u){
         this.authService.isLoggedIn = true;
+        this.authService.userRank = u.rank;
       }
       else{
         this.authService.isLoggedIn = false;
