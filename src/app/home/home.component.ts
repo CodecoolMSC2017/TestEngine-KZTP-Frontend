@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Test } from '../Test';
+import { News } from '../News';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  popularTests:Test[];
+  news:News[];
   constructor() { }
 
   ngOnInit() {

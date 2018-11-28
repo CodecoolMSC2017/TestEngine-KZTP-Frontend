@@ -4,8 +4,9 @@ body{
 }
 
 #container {
-  background-color: #d1dddd;
+  background-color: #f5ffff;
   width: 80%;
+  min-width: 520px;
   min-height: 100vh;
   margin:auto;
   border-radius: 5px;
