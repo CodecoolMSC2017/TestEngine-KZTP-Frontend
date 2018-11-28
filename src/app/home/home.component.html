@@ -1,8 +1,28 @@
-<div id="home">
+<div id="home" *ngIf="news && popularTests">
   <div id="popular-container">
-    <button class="popularbutton" id="button-left">🠸</button>
-    <div id="popular-item" >dadCAc diom dqdm wpd mqwdq dqdmqpod qwpqw oqwm fpoqwm fpoqw fmp qwfqw pofm qwpfmq nino onion on onon onon onio ioniono ono </div>
-    <button class="popularbutton" id="button-right">🠺</button>
+    <button class="popularbutton" id="button-left" (click) ="previousTest()">🠸</button>
+    <div id="popular-item" >
+      <div class="testInfo">
+        {{popularTests[testNumber].title}}
+      </div>
+      <div class="testInfo">
+        {{popularTests[testNumber].rating}} <p class="testInfo" id="star">★</p>
+      </div>
+      <div class="testInfo">
+        {{popularTests[testNumber].price}} $
+      </div>
+      <div class="testInfo">
+        {{popularTests[testNumber].creator.username}}
+      </div>
+      <div class="testInfo">
+        {{popularTests[testNumber].description}}
+      </div>
+    </div>
+    <button class="popularbutton" id="button-right" (click)="nextTest()">🠺</button>
   </div>
-  <div id="news"></div>
+  <div id="news-container">
+    <p id="newer" (click) ="getNewNews()" *ngIf="currentPage > 0">Newer articles...</p>
+    <div id="newsItem" *ngFor="let article of news"> {{article.content}} </div>
+    <p id="older" (click) ="getOlderNews()" *ngIf="currentPage < totalPages-1">Older news...</p>
+  </div>
 </div>
