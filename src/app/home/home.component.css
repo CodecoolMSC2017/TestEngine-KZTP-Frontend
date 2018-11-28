@@ -102,6 +102,8 @@
   box-shadow: 0 4px 9px -4px #365757;
   background-color: #ffffff;
   padding:10px;
+  font-weight: bold;
+  color:#588888;
 }
 
 #home {
