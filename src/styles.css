@@ -9,6 +9,7 @@ body{
   min-height: 100vh;
   margin:auto;
   border-radius: 5px;
+  margin-top: 150px;
 }
 
 *{
@@ -26,82 +27,3 @@ body{
   margin-top:150px;
 }
 
-#header {
-  text-align: left;
-  margin:auto;
-  height: 60px;
-  max-height: 120px;
-  font-weight: bold;
-}
-
-#header p {
-  margin-top: 50px;
-  margin-left:260px;
-  font-size: 6vh;
-  color:#365757;
-  text-shadow: #161222;
-}
-
-
-
-#logocontainer{
-  display:block;
-  position:absolute;
-  top:3px;
-  left:160px;
-  width:14vh;
-  height:14vh;
-  max-height:120px;
-
-  overflow:hidden;
-  transition:background-color 500ms;
-  cursor:pointer;
-}
-
-#pelogo{
-  display: block;
-  position: absolute;
-  left: 2vh;
-  top: 2vh;
-  width: 10vh;
-  height: 10vh;
-  background: #34324b;
-  background: -moz-linear-gradient(-45deg, #34324b 0%, #161222 100%);
-  background: -webkit-linear-gradient(-45deg, #34324b 0%,#161222 100%);
-  background: linear-gradient(135deg, #34324b 0%,#161222 100%);
-  background-size: contain;
-  font-family: Trebuchet MS, sans-serif;
-  font-size: 7vh;
-  font-weight: bold;
-  color: #0ed8ac;
-  text-align: center;
-  line-height: 10vh;
-}
-
-.loader{
-  display:block;
-  position:absolute;
-  background-color:#4d7561;
-}
-
-/*Pretty complex animation, so each side needs its own @keyframes.*/
-
-@keyframes slide1{
-  50%{width:12vh; margin-left:0;}
-  100%{margin-left:12vh;}
-}
-
-@keyframes slide2{
-  50%{height:12vh; margin-top:0;}
-  100%{margin-top:12vh;}
-}
-
-@keyframes slide3{
-  50%{width:12vh; margin-right:0;}
-  100%{margin-right:12vh;}
-}
-
-@keyframes slide4{
-  50%{height:12vh; margin-bottom:0}
-  100%{margin-bottom:12vh;}
-}
