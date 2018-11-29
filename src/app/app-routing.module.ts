@@ -11,6 +11,7 @@ import { LoginGuard } from './login.guard';
 import { TestdetailsComponent } from './testdetails/testdetails.component';
 import { TestcreateComponent } from './testcreate/testcreate.component';
 import { TaketestComponent } from './taketest/taketest.component';
+import { SettingsComponent } from './settings/settings.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -22,6 +23,7 @@ const routes: Routes = [
   {path: 'test/:id', component: TestdetailsComponent, canActivate: [LoginGuard]},
   {path: 'newtest', component: TestcreateComponent, canActivate: [LoginGuard]},
   {path: 'test/take/:id', component: TaketestComponent, canActivate: [LoginGuard]},
+  {path: 'mysettings', component: SettingsComponent, canActivate: [LoginGuard]},
   {path: '**', redirectTo: '/home' ,pathMatch:'full'}
 ];
 

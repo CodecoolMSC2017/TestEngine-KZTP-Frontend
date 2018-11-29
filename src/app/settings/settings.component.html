@@ -1,0 +1,29 @@
+<div *ngIf="user">
+  <input id="tab1" type="radio" name="tabs" checked>
+  <label for="tab1">Info</label>
+
+  <input id="tab2" type="radio" name="tabs">
+  <label for="tab2">My works</label>
+
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3">Finished tests</label>
+
+  <section id="content1">
+    {{user.username}} <br>
+    {{user.rank}}
+  </section>
+
+  <section id="content2">
+    <div *ngFor = "let test of tests">
+      {{test.title}}
+    </div>
+  </section>
+
+  <section id="content3">
+    <div *ngIf = "completedTests">
+      <div *ngFor = "let completedtest of completedTests">
+          {{completedtest.test.title}}
+      </div>
+    </div>
+  </section>
+</div>

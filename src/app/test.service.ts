@@ -6,6 +6,7 @@ import { NewTest } from './newTest';
 import { Question } from './question';
 import { UserSolution } from './usersolution';
 import { TestResult } from './testresult';
+import { UsersTest } from './UsersTest';
 
 @Injectable({
   providedIn: 'root'
@@ -61,6 +62,10 @@ export class TestService {
 
   getAllTestOrderedByPrice(order: string) {
     return this.http.get<any>("/api/test/orderedbyprice?order="+ order+"?page=0");
+  }
+
+  getLoggedUserCompletedTests(): Observable<UsersTest[]>{
+    return this.http.get<UsersTest[]>("/api/user/teststaken");
   }
 
 }

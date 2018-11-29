@@ -13,4 +13,8 @@ export class UserService {
   getUserByUsername(name: string): Observable<User>{
     return this.http.get<User>("/api/user/"+name);
   }
+
+  getLoggedUser(): Observable<User>{
+    return this.http.get<User>("/api/user/mysettings")
+  }
 }
