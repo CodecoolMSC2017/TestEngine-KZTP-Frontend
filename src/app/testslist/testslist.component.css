@@ -6,7 +6,7 @@
   margin:5px auto;
   margin-top:0px;
   padding-top: 40px;
-  min-width: 768px;
+  min-width: 480px;
   height:60px;
   padding-left:20px;
   padding-right: 20px;
@@ -22,11 +22,13 @@
   border:solid 1px black;
   height:25px;
   margin:5px auto;
+  overflow: hidden;
 }
 
 #listheader{
   background-color: #365757;
   color:#e5f8f8;
+  min-width: 480px;
 
 }
 
@@ -48,17 +50,16 @@
 .title {
   width:30%;
   border-right: black solid 2px;
+  min-width: 270px;
 }
 
 .rating,.price {
-  width: 4%;
+  width: 5%;
+  min-width: 50px;
   border-right: black solid 2px;
   text-align: center;
 }
 
-.price {
-  width:5%;
-}
 
 .price:hover, .rating:hover, .title:hover {
   cursor: pointer;
@@ -77,16 +78,18 @@
 
 .creator {
   width: 5%;
+  min-width: 60px;
   border-right: black solid 2px;
 }
 
 .description {
   width: 45%;
+  overflow: hidden;
 }
 
 .testlist {
   padding-top: 40px;
-  min-width: 768px;
+  min-width: 480px;
   padding-left:20px;
   padding-right: 20px;
   height: max-content;

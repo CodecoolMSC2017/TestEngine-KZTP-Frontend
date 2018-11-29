@@ -6,7 +6,9 @@
     <li *ngIf="!authService.isLoggedIn"><a routerLink = "login" >Login</a></li>
     <li *ngIf="!authService.isLoggedIn"><a routerLink = "register" >Register</a></li>
     <li *ngIf="authService.isLoggedIn"><a (click) = "deleteAuth()" >Logout</a></li>
+    <li *ngIf="authService.isLoggedIn"><a routerLink="mysettings">Settings</a> </li>
 </ul>
+<img id="logo" src="https://www.signe360.com/style/images/icons/lulu-gear.png">
 <p id="e">E</p>
 <p id="t">T</p>
-<p>TestEngine</p>
+<p id="testenginesign">TestEngine</p>

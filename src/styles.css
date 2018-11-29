@@ -1,8 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body{
   background-color: #7fdada;
-  background-image: url("https://www.signe360.com/style/images/icons/lulu-gear.png");
-  background-size: 170px;
+  /* background-image: url("https://www.signe360.com/style/images/icons/lulu-gear.png");
+  background-size: 170px; */
+  background-image: url("http://ecoot.me/wp-content/uploads/simple-animated-geometric-background-with-squares-4k-ultra-high-definition-video-loop-hzhlwak8x-thumbnail-full01-images-0.png");
 
 }
 
@@ -11,7 +12,6 @@ body{
   width: 80%;
   min-width: 520px;
   min-height: 100vh;
-  max-height:max-content;
   margin:auto;
   border-radius: 5px;
   margin-top: 150px;
@@ -29,7 +29,7 @@ body{
   width:100%;
   overflow: hidden;
   position: absolute;
-  left:0px;
+  left:0;
   margin-top:150px;
 }
 
