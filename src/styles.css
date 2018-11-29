@@ -11,6 +11,7 @@ body{
   width: 80%;
   min-width: 520px;
   min-height: 100vh;
+  max-height:max-content;
   margin:auto;
   border-radius: 5px;
   margin-top: 150px;
