@@ -6,4 +6,5 @@ export class User {
     tests: Object[]=[];
     userTests: Object[]=[];
     enabled: boolean;
+    authorities: String[];
 }

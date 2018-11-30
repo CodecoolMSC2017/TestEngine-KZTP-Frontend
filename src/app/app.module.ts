@@ -16,6 +16,7 @@ import { TestdetailsComponent } from './testdetails/testdetails.component';
 import { TestcreateComponent } from './testcreate/testcreate.component';
 import { TaketestComponent } from './taketest/taketest.component';
 import { SettingsComponent } from './settings/settings.component';
+import { AdminToolsComponent } from './admin-tools/admin-tools.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SettingsComponent } from './settings/settings.component';
     TestdetailsComponent,
     TestcreateComponent,
     TaketestComponent,
-    SettingsComponent
+    SettingsComponent,
+    AdminToolsComponent
   ],
   imports: [
     BrowserModule,
