@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  
+
   loginDetails: LoginDetails = new LoginDetails();
 
   showError: boolean = false;
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   handleAuthSuccess = user => {
-    this.ngZone.run(() =>{ 
+    this.ngZone.run(() =>{
       this.authService.isLoggedIn = true;
       this.authService.getAuth().subscribe(u => {
         this.authService.userRank = u.rank;
@@ -48,7 +48,7 @@ export class LoginComponent implements OnInit {
 
   getAuth() : void {
     const fieldsComplete = this.checkLoginFields();
-    
+
     if (!fieldsComplete) {
       this.authService.getAuth(this.loginDetails)
         .subscribe(this.handleAuthSuccess, this.handleAuthError);

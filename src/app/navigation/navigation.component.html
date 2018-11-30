@@ -1,11 +1,11 @@
 <div id="navbg">
   <ul>
     <li><a routerLink = "home">Home</a></li>
-    <div class="dropdown">
+    <div id="dropdown">
       <span>Tests</span>
-      <div class="dropdown-content">
-        <li><a routerLink = "tests">Live tests</a></li><br>
-        <li *ngIf="authService.isLoggedIn && authService.userRank != 'newbie'" ><a routerLink = "pool" >Pool page</a></li><br>
+      <div id="dropdown-content">
+        <li><a routerLink = "tests">Live tests</a></li>
+        <li *ngIf="authService.isLoggedIn && authService.userRank != 'newbie'" ><a routerLink = "pool" >Pool page</a></li>
         <li *ngIf="authService.isLoggedIn"><a routerLink = "newtest" >Create Test</a></li>
       </div>
     </div>

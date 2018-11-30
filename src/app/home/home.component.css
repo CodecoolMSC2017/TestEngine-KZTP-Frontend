@@ -44,19 +44,68 @@
   height:95px;
   margin-top: 2px;
   margin:auto;
-  max-width:85%;
-  border:1px solid black;
+  width:100%;
   display: inline-block;
   overflow-wrap: break-word;
   overflow: hidden;
   float: none;
+  background-color: white;
+  border-radius: 2px;
 }
 
 .testInfo {
   display:inline-block;
-  margin:5px;
   overflow: hidden;
-  border-right: black solid 2px;
+}
+
+#testtitle {
+  position: relative;
+  top:10px;
+  left:10px;
+  font-size: 20px;
+  color: #365757;
+  font-weight: bold;
+  float: left;
+  width: 170px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#testrating {
+  position: relative;
+  top:12px;
+  margin-left: 30px;
+  width:120px;
+  float: left;
+
+}
+
+#testcreator {
+  position: relative;
+  left:-310px;
+  top:-20px;
+}
+
+#testprice {
+  float: right;
+  position: relative;
+  right: 20px;
+  font-size: 45px;
+  margin-top:25px;
+  font-weight: bold;
+  color:#588888;
+
+}
+
+#testdescription {
+  max-width: 50%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  height:45px;
+  margin-top: 25px;
+  color: #365757;
 }
 
 #star {
@@ -99,11 +148,17 @@
   width:96%;
   height:200px;
   margin-top:10px;
-  box-shadow: 0 4px 9px -4px #365757;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px #36575734;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
   background-color: #ffffff;
   padding:10px;
   font-weight: bold;
   color:#588888;
+  border-radius: 2px;
+}
+
+#newsItem:hover {
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 #home {
@@ -128,4 +183,38 @@
 
 #newer:hover {
   cursor: pointer;
+}
+
+#articleTitle {
+  font-size: 20px;
+  height:25px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  color:#365757;
+
+}
+
+#articleTitle:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  font-size: 20.1px;
+}
+
+#articleAuthor {
+  font-size: 10px;
+  font-weight: lighter;
+  margin-top: 5px;
+}
+
+#articleContent {
+  width:100%;
+  height:150px;
+  margin-top:15px;
+  text-overflow: ellipsis;
+  font-weight: lighter;
+  overflow: hidden;
+  white-space: nowrap;
+  box-shadow: #3657573a 1px 1px 1px 1px;
+  border-radius: 2px;
 }

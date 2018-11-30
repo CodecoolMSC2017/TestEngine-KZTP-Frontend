@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
 
   previousTest() {
     if(this.testNumber > 0) {
-      this.testNumber++;
+      this.testNumber--;
     }
     else {
       this.testNumber =this.popularTests.length-1;
