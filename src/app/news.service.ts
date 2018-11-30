@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { EditNews } from './EditNews';
 import { NewNews } from './NewNews';
+import { News } from './News';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,9 @@ export class NewsService {
 
   createNews(newNews: NewNews){
     return this.http.post<void>("/api/admin/news/create",newNews);
+  }
+
+  getNewsById(id: number): Observable<News>{
+    return this.http.get<News>("/api/admin/news/"+id);
   }
 }

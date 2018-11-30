@@ -9,13 +9,13 @@
   <label for="tab2"><i class="fa fa-code"></i><span>Edit News</span></label>
 
   <input id="tab3" type="radio" name="tabs">
-  <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>Services</span></label>
+  <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>TAB3</span></label>
 
   <input id="tab4" type="radio" name="tabs">
-  <label for="tab4"><i class="fa fa-folder-open-o"></i><span>Portfolio</span></label>
+  <label for="tab4"><i class="fa fa-folder-open-o"></i><span>TAB4</span></label>
 
   <input id="tab5" type="radio" name="tabs">
-  <label for="tab5"><i class="fa fa-envelope-o"></i><span>Contact</span></label>
+  <label for="tab5"><i class="fa fa-envelope-o"></i><span>TAB5</span></label>
 
   <section id="content1" class="tab-content">
     <h3>Add News</h3>
@@ -26,16 +26,19 @@
   </section>
 
   <section id="content2" class="tab-content">
-    <h3>Headline 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <h3>Edit News</h3>
+    <div *ngIf="newsList" id = "news-list">
+      <div *ngFor = "let elem of newsList">
+          <p id = "{{elem.id}}" (click) = "changeSelected($event)" >[{{elem.id}}]-{{elem.title}}</p>
+      </div>
+      <div *ngIf = "selectedNews">
+          <p>Title: <input type="text" [(ngModel)]="selectedNews.title"></p>
+          <p>Content:<br> <textarea rows="4" cols="50"[(ngModel)]="selectedNews.content"></textarea></p>
+          <p><input type ="button" value="Edit News" (click) = "editNews()"></p>
+          <p *ngIf = "showError">{{errorMessage}}</p>
+      </div>
+    </div>
+        
   </section>
 
   <section id="content3" class="tab-content">
