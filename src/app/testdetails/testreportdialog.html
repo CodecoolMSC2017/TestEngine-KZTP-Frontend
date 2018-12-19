@@ -1,0 +1,24 @@
+<h4>Report Test</h4>
+<div >
+  <p>What's the cause of the report?</p>
+</div>
+<form >
+  <input [(ngModel)]="result" type="radio" name="language" [value]="'foulLanguage'" >
+  <label for="language">Test contains foul language.</label>
+  <br>
+  <input [(ngModel)]="result" type="radio" name="incorrect" [value]="'wrongAnswer'" >
+  <label for="incorrect">There is an error with answers.</label>
+  <br>
+  <input [(ngModel)]="result" type="radio" name="question" [value]="'wrongQuestion'" >
+  <label for="question">There is a problem with the question.</label>
+  <br>
+  <input [(ngModel)]="result" type="radio" name="other" (click)="textinput=true" [value]="'other'">
+  <label for="other">Other.</label>
+  <br>
+  <label *ngIf="textinput"  for="othertext">Please define your problem: </label>
+  <input [(ngModel)]="result" *ngIf="textinput" type="text" name="othertext" >
+  <div >
+    <button type="submit"  (click)="onSendReportClick()">Send report</button>
+    <button  (click)="onCancelClick()">Cancel</button>
+  </div>
+</form>

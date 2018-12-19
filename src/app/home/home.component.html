@@ -1,7 +1,7 @@
 <div id="home" *ngIf="news && popularTests">
   <div id="popular-container">
     <button class="popularbutton" id="button-left" (click) ="previousTest()">🠸</button>
-    <div id="popular-item" >
+    <div id="popular-item"  routerLink = "/test/{{popularTests[testNumber].id}}">
       <div class="testInfo" id="testtitle">
         {{popularTests[testNumber].title}}
       </div>

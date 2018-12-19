@@ -213,5 +213,11 @@ h1 {
   display: inline;
 }
 
+#reportButton {
+  position: relative;
+  top:20px;
+  right:0px;
+}
+
 
 

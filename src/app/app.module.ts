@@ -12,11 +12,14 @@ import { TestslistComponent } from './testslist/testslist.component';
 import { PoollistComponent } from './poollist/poollist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { NavigationComponent } from './navigation/navigation.component';
-import { TestdetailsComponent } from './testdetails/testdetails.component';
+import { TestdetailsComponent, TestReportDialog } from './testdetails/testdetails.component';
 import { TestcreateComponent } from './testcreate/testcreate.component';
 import { TaketestComponent } from './taketest/taketest.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminToolsComponent } from './admin-tools/admin-tools.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 @NgModule({
   declarations: [
@@ -32,13 +35,20 @@ import { AdminToolsComponent } from './admin-tools/admin-tools.component';
     TestcreateComponent,
     TaketestComponent,
     SettingsComponent,
-    AdminToolsComponent
+    AdminToolsComponent,
+    TestReportDialog
   ],
+  entryComponents:[
+    TestReportDialog
+  ],
+
   imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

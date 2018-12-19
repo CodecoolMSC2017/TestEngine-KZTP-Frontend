@@ -1,4 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+
 body{
   background-color: #7fdada;
   /* background-image: url("https://www.signe360.com/style/images/icons/lulu-gear.png");

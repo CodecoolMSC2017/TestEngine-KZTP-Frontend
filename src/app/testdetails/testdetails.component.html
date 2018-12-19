@@ -1,8 +1,9 @@
 <div *ngIf = "test" id="detail-page">
   <div id = "test-details" >
     <h1>{{test.title}}</h1>
+    <div id="reportButton"><button mat-raised-button (click)="openDialog()">Report test</button></div>
     <div id="creator" routerLink = "/user/{{test.creator.username}}"> <p>Created by: {{test.creator.username}}</p></div>
-    
+
 
     <div id="description"><p>{{test.description}}</p></div>
 

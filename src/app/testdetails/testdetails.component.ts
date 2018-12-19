@@ -1,8 +1,16 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material';
+import {Inject} from '@angular/core';
+
 
 import { Test } from '../Test';
 import { TestService } from '../test.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TestreportService } from '../testreport.service';
+
+export interface ReportData {
+  testId: number;
+}
 
 @Component({
   selector: 'app-testdetails',
@@ -16,7 +24,7 @@ export class TestdetailsComponent implements OnInit {
   testTaken: boolean;
   testVoted: boolean;
   testRated: boolean;
-  constructor(private testService: TestService,private route: ActivatedRoute, private router: Router) {
+  constructor(private testService: TestService,private route: ActivatedRoute, private router: Router,public dialog: MatDialog) {
     this.route.params.subscribe(params => {
       this.testId = params.id;
     });
@@ -27,6 +35,7 @@ export class TestdetailsComponent implements OnInit {
     this.testService.isTestDone(this.testId).subscribe(td => this.testTaken = td);
     this.testService.isTestRated(this.testId).subscribe(tr => this.testRated = tr);
     this.testService.isTestVoted(this.testId).subscribe(tv => this.testVoted = tv);
+
   }
   takeTest(){
     this.router.navigate(['test/take/'+this.testId]);
@@ -45,5 +54,42 @@ export class TestdetailsComponent implements OnInit {
     }
   }
 
+  openDialog(): void {
+    const dialogRef = this.dialog.open(TestReportDialog, {
+      width: '350px',
+      height:'300px',
+      data: {testId: this.testId}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+
+    });
+  }
+
+
+}
+
+@Component({
+  selector: 'testreportdialog',
+  templateUrl: 'testreportdialog.html',
+})
+export class TestReportDialog {
+
+  result:String="language";
+  textinput:false;
+
+  constructor(
+    public dialogRef: MatDialogRef<TestReportDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: ReportData,private testreportService:TestreportService) {}
+
+  onCancelClick(): void {
+    this.dialogRef.close();
+  }
+
+  onSendReportClick() {
+    this.testreportService.reportTest(this.data.testId,this.result).subscribe(any => console.log(any));
+    this.dialogRef.close();
+  }
 
 }

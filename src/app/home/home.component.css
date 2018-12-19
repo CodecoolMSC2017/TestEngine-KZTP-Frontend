@@ -13,6 +13,10 @@
 
 }
 
+#popular-item:hover {
+  cursor: pointer;
+}
+
 .popularbutton {
   height: 95px;
   margin-top:2px;

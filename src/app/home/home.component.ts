@@ -3,6 +3,7 @@ import { Test } from '../Test';
 import { News } from '../News';
 import { TestService } from '../test.service';
 import { NewsService } from '../news.service';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   currentPage:number =0;
   testNumber:number=0;
   totalPages:number;
+  popularTimer = interval(5000);
   constructor(private newsService: NewsService,private testService:TestService) { }
 
   ngOnInit() {
@@ -24,6 +26,13 @@ export class HomeComponent implements OnInit {
       this.totalPages = news.totalPages;
     });
     this.testService.getAllTest(0,5,"desc","rating",true,"",0,5,0,9999).subscribe(stuff =>this.popularTests = stuff.content);
+    this.popularTimerStart();
+  }
+
+  popularTimerStart(){
+    this.popularTimer.subscribe(()=>{
+      this.nextTest();
+    });
   }
 
   nextTest() {
