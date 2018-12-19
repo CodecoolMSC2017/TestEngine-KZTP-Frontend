@@ -18,10 +18,12 @@ export class NavigationComponent implements OnInit {
       if(u){
         this.authService.isLoggedIn = true;
         this.authService.userRank = u.rank;
+        this.authService.authority = u.authorities[0];
       }
       else{
         this.authService.isLoggedIn = false;
         this.authService.userRank = "newbie";
+        this.authService.authority="none";
       }
     });
 
@@ -33,6 +35,7 @@ export class NavigationComponent implements OnInit {
         this.router.navigate(['login']);
         this.authService.isLoggedIn = false;
         this.authService.userRank = "newbie";
+        this.authService.authority="none";
       }
       ))
       .subscribe();

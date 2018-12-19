@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
       this.authService.isLoggedIn = true;
       this.authService.getAuth().subscribe(u => {
         this.authService.userRank = u.rank;
+        this.authService.authority = u.authorities[0];
       });
       this.router.navigate(['tests']);
     });

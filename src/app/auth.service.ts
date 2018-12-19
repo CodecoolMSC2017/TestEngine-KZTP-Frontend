@@ -11,6 +11,7 @@ import { isUndefined } from 'util';
 export class AuthService {
   isLoggedIn: boolean;
   userRank: String;
+  authority: String;
 
   constructor(private http: HttpClient) {
     this.isLoggedIn = false;

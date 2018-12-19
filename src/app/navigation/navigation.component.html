@@ -12,6 +12,7 @@
     <li *ngIf="!authService.isLoggedIn"><a routerLink = "login" >Login</a></li>
     <li *ngIf="!authService.isLoggedIn"><a routerLink = "register" >Register</a></li>
     <li *ngIf="authService.isLoggedIn"><a routerLink="mysettings">Settings</a> </li>
+    <li *ngIf="authService.authority == 'ROLE_ADMIN'"><a routerLink="admintools">AdminSettings</a> </li>
     <li *ngIf="authService.isLoggedIn"><a (click) = "deleteAuth()" >Logout</a></li>
   </ul>
 </div>
