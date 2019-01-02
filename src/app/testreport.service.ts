@@ -17,6 +17,6 @@ export class TestreportService {
   }
 
   resolveReport(reportId:number) {
-    return this.http.post<any>("/api/admin/report/solved/" + reportId);
+    return this.http.post<any>("/api/admin/report/solved/" + reportId,null);
   }
 }
