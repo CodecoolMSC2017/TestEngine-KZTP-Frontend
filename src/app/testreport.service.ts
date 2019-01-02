@@ -11,4 +11,12 @@ export class TestreportService {
   reportTest(testId:number,description:String){
     return this.http.post<String>("/api/user/test/report/"+ testId,description);
   }
+
+  getReportedTests(page:number,pageSize:number) {
+    return this.http.get<any>("/api/admin/test/reportedtests?page="+page+"&pagesize=" + pageSize);
+  }
+
+  resolveReport(reportId:number) {
+    return this.http.post<any>("/api/admin/report/solved/" + reportId);
+  }
 }

@@ -107,7 +107,7 @@ label .fa {
   label span {
     display: none;
   }
-  
+
   .tab_container {
     width: 98%;
   }
@@ -119,7 +119,7 @@ label .fa {
   	transform: scale(0.9);
   	opacity: 0;
   }
-  
+
   100% {
   	transform: scale(1);
   	opacity: 1;
@@ -134,3 +134,58 @@ label .fa {
   text-align:center;
 }
 
+/* Reports styles */
+
+#reportBar {
+  width: 100%;
+  background-color:rgb(199, 247, 255);
+  margin:3px;
+  padding:5px;
+}
+
+#reportTitle {
+  display: inline-block;
+  width:190px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#reportTitle:hover {
+  cursor: pointer;
+}
+
+#reportCause {
+  display: inline-block;
+  width:110px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#reportingUser {
+  margin-left: 10px;
+  display:inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+#solved {
+  display: inline-block;
+  position: absolute;
+  right:25px;
+}
+
+#solved img {
+  height: 25px;
+}
+
+.headerbar {
+  font-weight: bold;
+}
+
+#solved:hover {
+  cursor: pointer;
+}
+/* Reports styles end */

@@ -5,6 +5,8 @@ import { News } from '../News';
 import { NewsService } from '../news.service';
 import { Observable } from 'rxjs';
 import { EditNews } from '../EditNews';
+import { TestreportService } from '../testreport.service';
+import { TestReport } from '../TestReport';
 
 @Component({
   selector: 'app-admin-tools',
@@ -19,9 +21,12 @@ export class AdminToolsComponent implements OnInit {
 
   newsList: News[];
   currentPage:number = 0;
+  reportsPage:number=0;
+  reportsPageSize:number= 10;
   totalPages:number;
   selectedNews: News;
-  constructor(private adminTools: AdminService, private newsService: NewsService) { 
+  reportedTests:TestReport[];
+  constructor(private adminTools: AdminService, private newsService: NewsService,private testReportService:TestreportService) {
     this.newNews = new NewNews();
   }
 
@@ -30,6 +35,7 @@ export class AdminToolsComponent implements OnInit {
       this.newsList = n.content;
       this.totalPages = n.totalPages;
     });
+    this.testReportService.getReportedTests(this.reportsPage,this.reportsPageSize).subscribe(any => this.reportedTests = any.content);
   }
 
   createNews(){
@@ -60,5 +66,10 @@ export class AdminToolsComponent implements OnInit {
         });
       });
     }
+  }
+
+  resolveReport(report:TestReport) {
+
+    this.testReportService.resolveReport(report.id).subscribe(any => this.reportedTests[this.reportedTests.indexOf(report)].solved=true);
   }
 }

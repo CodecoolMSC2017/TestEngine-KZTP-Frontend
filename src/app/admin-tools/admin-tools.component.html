@@ -4,12 +4,12 @@
 
   <input id="tab1" type="radio" name="tabs" checked>
   <label for="tab1"><i class="fa fa-pencil-square-o"></i><span>Create News</span></label>
-  
+
   <input id="tab2" type="radio" name="tabs" >
   <label for="tab2"><i class="fa fa-code"></i><span>Edit News</span></label>
 
   <input id="tab3" type="radio" name="tabs">
-  <label for="tab3"><i class="fa fa-bar-chart-o"></i><span>TAB3</span></label>
+  <label for="tab3"><i class="fa fa-pencil-square-o"></i><span>Reported tests</span></label>
 
   <input id="tab4" type="radio" name="tabs">
   <label for="tab4"><i class="fa fa-folder-open-o"></i><span>TAB4</span></label>
@@ -38,23 +38,33 @@
           <p *ngIf = "showError">{{errorMessage}}</p>
       </div>
     </div>
-        
+
   </section>
 
   <section id="content3" class="tab-content">
-    <h3>Headline 3</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <div id="reportBar" class="headerbar">
+      <div id="reportTitle">Reported test</div>
+      <div id="reportCause">Cause</div>
+      <div id="reportingUser">User</div>
+      <div id="solved">Status</div>
+    </div>
+    <div *ngFor="let report of reportedTests">
+      <div id="reportBar">
+        <div id="reportTitle" routerLink = "/test/{{report.reportedTest.id}}">
+          {{report.reportedTest.title}} ID: {{report.reportedTest.id}}
+        </div>
+        <div id="reportCause">
+          {{report.description}}
+        </div>
+        <div id="reportingUser">
+          {{report.reporter.username}}
+        </div>
+        <div id="solved"  >
+           <img *ngIf="report.solved"  src="http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png">
+           <img (click)="resolveReport(report)" *ngIf="!report.solved"  src="https://www.szam.hu/wp-content/uploads/2017/10/red-x-png-4-240x300.png" >
+        </div>
+      </div>
+    </div>
   </section>
 
   <section id="content4" class="tab-content">
