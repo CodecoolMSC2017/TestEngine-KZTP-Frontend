@@ -14,6 +14,7 @@ export class SettingsComponent implements OnInit {
 
   user: User;
   tests: Test[];
+  pooltests:Test[];
   completedTests: UsersTest[];
   constructor(private userService:UserService, private testService:TestService) { }
 
@@ -21,9 +22,10 @@ export class SettingsComponent implements OnInit {
     this.userService.getLoggedUser().subscribe(u => {
       this.user = u;
       this.testService.getTestsForUser(u.username).subscribe(t => this.tests = t);
+      this.testService.getPoolTestsForUser(u.username).subscribe(t => this.pooltests = t);
       this.testService.getLoggedUserCompletedTests().subscribe(t => this.completedTests = t);
     });
-    
+
   }
 
 }

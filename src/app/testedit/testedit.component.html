@@ -1,7 +1,18 @@
-<div>{{test.title}}</div>
-<div *ngFor="let question of questions">
-  <div> {{question.text}} </div>
-  <div *ngFor="let choice of question.choices"> {{choice.text}} </div>
-  <div> {{question.answer.text}} </div>
 
-</div>
+<form>
+    <table *ngFor="let question of questions;let i = index">
+      <br>
+      <tr >
+        <td> Q{{i + 1}}. <input name="question.{{i}}.text" [(ngModel)]="question.text"></td>
+      </tr>
+      <br>
+      <tr *ngFor="let choice of question.choices;let j = index">
+        Ch{{j+1}}. <input name="choice.{{i}}.{{j}}.text" [(ngModel)]="choice.text">
+      </tr>
+
+      <br>
+      <tr>A <input name="question.{{i}}.answer.text" [(ngModel)]="question.answer.text"></tr>
+     </table>
+     <input type="submit" value="Save changes" (click)="editTest()">
+ </form>
+

@@ -22,7 +22,10 @@ export class TestService {
     return this.http.get<any>("/api/user/test/pool?page="+page);
   }
   getTestsForUser(username: string):Observable<Test[]>{
-    return this.http.get<Test[]>("/api/user/tests/"+username);
+    return this.http.get<Test[]>("/api/user/tests/"+username +"/true");
+  }
+  getPoolTestsForUser(username: string):Observable<Test[]>{
+    return this.http.get<Test[]>("/api/user/tests/"+username +"/false");
   }
   getTest(id: number): Observable<Test>{
     return this.http.get<Test>("/api/test/"+id);

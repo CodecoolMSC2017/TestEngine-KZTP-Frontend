@@ -14,8 +14,14 @@
   </section>
 
   <section id="content2">
-    <div *ngFor = "let test of tests">
-      {{test.title}}
+    <div>Live tests</div>
+    <div *ngFor = "let test of tests" >
+      <div routerLink="/testedit/{{test.id}}">{{test.title}} </div>
+    </div>
+
+    <div>Pool tests</div>
+    <div *ngFor = "let pooltest of pooltests" >
+      <div routerLink="/testedit/{{pooltest.id}}">{{pooltest.title}} </div>
     </div>
   </section>
 

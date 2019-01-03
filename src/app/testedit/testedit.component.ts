@@ -28,4 +28,8 @@ export class TesteditComponent implements OnInit {
 
   }
 
+  editTest() {
+    this.testeditService.editTest(this.testId,this.questions).subscribe();
+  }
+
 }
