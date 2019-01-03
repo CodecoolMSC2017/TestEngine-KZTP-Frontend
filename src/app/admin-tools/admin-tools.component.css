@@ -79,7 +79,8 @@ label {
 }
 
 .tab_container .tab-content p,
-.tab_container .tab-content h3 {
+.tab_container .tab-content h3,
+.tab_container #reportBar {
   -webkit-animation: fadeInScale 0.7s ease-in-out;
   -moz-animation: fadeInScale 0.7s ease-in-out;
   animation: fadeInScale 0.7s ease-in-out;
@@ -164,11 +165,26 @@ label .fa {
 }
 
 #reportingUser {
-  margin-left: 10px;
+  margin-left: 5px;
   display:inline-block;
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+#resolveButton {
+  display: inline-block;
+  position: absolute;
+  right:75px;
+}
+
+#resolveButton:hover {
+  cursor: pointer;
+}
+
+#resolveButton i {
+  font-size: 1.7em !important;
+  color:red;
 }
 
 #solved {

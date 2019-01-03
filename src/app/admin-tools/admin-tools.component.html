@@ -46,6 +46,7 @@
       <div id="reportTitle">Reported test</div>
       <div id="reportCause">Cause</div>
       <div id="reportingUser">User</div>
+      <div id="resolveButton" >Resolve</div>
       <div id="solved">Status</div>
     </div>
     <div *ngFor="let report of reportedTests">
@@ -58,6 +59,9 @@
         </div>
         <div id="reportingUser">
           {{report.reporter.username}}
+        </div>
+        <div id="resolveButton" routerLink = "/testedit/{{report.reportedTest.id}}">
+          <i class="fa fa-pencil-square-o"></i>
         </div>
         <div id="solved"  >
            <img *ngIf="report.solved"  src="http://www.clker.com/cliparts/2/k/n/l/C/Q/transparent-green-checkmark-md.png">
