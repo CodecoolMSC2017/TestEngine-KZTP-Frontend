@@ -1,0 +1,7 @@
+<div>{{test.title}}</div>
+<div *ngFor="let question of questions">
+  <div> {{question.text}} </div>
+  <div *ngFor="let choice of question.choices"> {{choice.text}} </div>
+  <div> {{question.answer.text}} </div>
+
+</div>

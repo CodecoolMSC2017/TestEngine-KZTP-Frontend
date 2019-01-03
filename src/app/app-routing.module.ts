@@ -14,6 +14,7 @@ import { TaketestComponent } from './taketest/taketest.component';
 import { SettingsComponent } from './settings/settings.component';
 import { AdminToolsComponent } from './admin-tools/admin-tools.component';
 import { AdminGuard } from './admin.guard';
+import { TesteditComponent } from './testedit/testedit.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -26,6 +27,7 @@ const routes: Routes = [
   {path: 'newtest', component: TestcreateComponent, canActivate: [LoginGuard]},
   {path: 'test/take/:id', component: TaketestComponent, canActivate: [LoginGuard]},
   {path: 'mysettings', component: SettingsComponent, canActivate: [LoginGuard]},
+  {path: 'testedit/:id', component: TesteditComponent, canActivate: [LoginGuard]},
   {path: 'admintools', component: AdminToolsComponent, canActivate: [AdminGuard]},
   {path: '**', redirectTo: '/home' ,pathMatch:'full'}
 ];
