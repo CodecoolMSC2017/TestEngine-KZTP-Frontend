@@ -14,15 +14,61 @@
   </section>
 
   <section id="content2">
-    <div>Live tests</div>
-    <div *ngFor = "let test of tests" >
-      <div routerLink="/testedit/{{test.id}}">{{test.title}} </div>
-    </div>
+    <table>
+      <tr>
+        <td>
+          <div class="testList" id="liveTests"><p>Live tests</p>
+            <div *ngFor = "let test of tests" class="testItem" [ngStyle]="{'border': test.id === selectedLiveTest.id ? '1px solid black' : 'none' }">
+              <div (click)="setSelectedLiveTest(test)">{{test.title}} </div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="testList">
+            <div class="testDetails" *ngIf="selectedLiveTest">
+              <div class="buttonsContainer">
+                <div class="routerButton" routerLink="/testedit/{{selectedLiveTest.id}}">Edit</div>
+                <div class="routerButton" routerLink="/test/{{selectedLiveTest.id}}">Check</div>
+                <div class="routerButton" >Delete</div>
+                <br>
+                Times taken by people:
+                <br>
+                Average percentage:
+                <br>
+                <p *ngIf="selectedLiveTest.price > 0">Income:</p>
+              </div>
+            </div>
+          </div>
+        </td>
 
-    <div>Pool tests</div>
-    <div *ngFor = "let pooltest of pooltests" >
-      <div routerLink="/testedit/{{pooltest.id}}">{{pooltest.title}} </div>
-    </div>
+        <td>
+          <div class="testList" id="poolTests"><p>Pool tests</p>
+            <div *ngFor = "let pooltest of pooltests" class="testItem" [ngStyle]="{'border': pooltest.id === selectedPoolTest.id ? '1px solid black' : 'none' }">
+              <div (click)="setSelectedPoolTest(pooltest)" >{{pooltest.title}}</div>
+            </div>
+          </div>
+        </td>
+        <td>
+          <div class="testList">
+              <div class="testDetails" *ngIf="selectedPoolTest">
+                <div class="buttonsContainer">
+                  <div class="routerButton" routerLink="/testedit/{{selectedPoolTest.id}}">Edit</div>
+                  <div class="routerButton" routerLink="/test/{{selectedPoolTest.id}}">Check</div>
+                  <div class="routerButton" >Delete</div>
+                </div>
+                <br>
+                {{selectedPoolTest.title}}
+                <br>
+                Times taken by people:
+                <br>
+                Average percentage:
+                <br>
+
+              </div>
+          </div>
+        </td>
+      </tr>
+    </table>
   </section>
 
   <section id="content3">
