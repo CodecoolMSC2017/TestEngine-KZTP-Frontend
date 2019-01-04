@@ -1,3 +1,6 @@
-<p>
-  activate works!
-</p>
+<div *ngIf="tokenSuccesful">
+  <p>Succesful verification! You can login now.Redirecting in: {{time}}s...</p>
+</div>
+
+<div class="error" id="tokenError">{{tokenErrorMessage}}</div>
+

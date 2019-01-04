@@ -14,18 +14,27 @@ export class ActivationComponent implements OnInit {
   tokenErrorMessage:String;
   emailErrorMessage:String;
   emailSent:boolean;
+  tokenSuccesful:boolean;
   showTokenError:boolean=false;
   showEmailError:boolean=false;
+  time:number =4;
+  interval;
 
   constructor(private activationService:ActivationService,private router: Router) { }
 
   ngOnInit() {
   }
 
+  startTimer() {
+    this.interval = setInterval(() => {this.time--},1000);
+  }
+
   activateUser() {
     this.activationService.activateUser(this.userToken).subscribe(any=>{
       this.showTokenError =false;
-      this.router.navigate(['success']);
+      this.tokenSuccesful = true;
+      this.startTimer();
+      setTimeout(()=>{ this.router.navigate(['login']); }, 4000)
     },
     error => {
       this.showTokenError = true;
