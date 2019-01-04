@@ -16,6 +16,7 @@ import { AdminToolsComponent } from './admin-tools/admin-tools.component';
 import { AdminGuard } from './admin.guard';
 import { TesteditComponent } from './testedit/testedit.component';
 import { ActivationComponent } from './activation/activation.component';
+import { ActivateComponent } from './activate/activate.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   {path: 'testedit/:id', component: TesteditComponent, canActivate: [LoginGuard]},
   {path: 'admintools', component: AdminToolsComponent, canActivate: [AdminGuard]},
   {path: 'activation',component: ActivationComponent},
+  {path: 'activate',component: ActivateComponent},
   {path: '**', redirectTo: '/home' ,pathMatch:'full'}
 ];
 
