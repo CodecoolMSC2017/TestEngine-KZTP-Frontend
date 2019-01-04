@@ -22,10 +22,10 @@ form:after {
 	clear: both;
 	visibility: hidden;
 }
-.logincontainer { 
+.logincontainer {
     padding: 10px;
     margin: 25px auto;
-    position: relative; 
+    position: relative;
     width: 900px; }
 #logincontent {
 	background: #f9f9f9;
@@ -229,4 +229,27 @@ form:after {
 .button a:hover {
 	background-position: 0 -135px;
 	color: #00aeef;
+}
+
+.error {
+  color:red;
+  font-size: 15px;
+}
+
+.error a,
+.error p {
+  display:inline-block;
+  color:red;
+}
+
+.error a {
+  text-decoration-line: underline;
+  padding:0;
+  font-size: 15px;
+  margin-left: 4px;
+
+}
+
+.error a:hover {
+  cursor: pointer;
 }

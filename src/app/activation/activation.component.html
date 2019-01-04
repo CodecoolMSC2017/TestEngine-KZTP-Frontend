@@ -1,0 +1,16 @@
+<div class="container">
+  <p>Enter your usertoken that you received in email.</p>
+  <input type="text" [(ngModel)]="userToken">
+  <button (click) ="activateUser()">Activate</button>
+  <div class="error" id="tokenError">{{tokenErrorMessage}}</div>
+</div>
+
+<div class="container">
+  <p>Didn't receive email?Enter your adress and resend.</p>
+  <input type="text" [(ngModel)]="email">
+  <button (click)="resendEmail()" >Send</button>
+  <div *ngIf="emailSent">Email sent!</div>
+  <div class="error" id="emailError">{{emailErrorMessage}}</div>
+</div>
+
+

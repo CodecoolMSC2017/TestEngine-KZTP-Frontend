@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
 
     if (!fieldsComplete && !passwordChecker) {
       this.registerService.register(this.registerDetails).subscribe(() => {
-        this.router.navigate(['login']);
+        this.router.navigate(['activation']);
       },
       (error) => {
           this.showError = true;

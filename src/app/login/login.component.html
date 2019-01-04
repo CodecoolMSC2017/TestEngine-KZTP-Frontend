@@ -15,7 +15,7 @@
 			</div>
 		</form><!-- form -->
 		<div class="button">
-			<span class="error" *ngIf="showError">{{ errorMessage }}</span><br>
+			<span class="error" *ngIf="showError">{{ errorMessage }} <p *ngIf="errorMessage == 'User not activated.'">Please activate your account </p><a *ngIf="errorMessage == 'User not activated.'" routerLink="/activation"> here.</a></span><br>
 		</div><!-- button -->
 	</section><!-- content -->
 </div><!-- container -->

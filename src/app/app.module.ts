@@ -20,6 +20,7 @@ import { AdminToolsComponent } from './admin-tools/admin-tools.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TesteditComponent } from './testedit/testedit.component';
+import { ActivationComponent } from './activation/activation.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { TesteditComponent } from './testedit/testedit.component';
     SettingsComponent,
     AdminToolsComponent,
     TestReportDialog,
-    TesteditComponent
+    TesteditComponent,
+    ActivationComponent
   ],
   entryComponents:[
     TestReportDialog
