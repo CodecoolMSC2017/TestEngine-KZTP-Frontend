@@ -14,7 +14,8 @@ export class ProfileComponent implements OnInit {
   username: string;
   user:User;
   tests: Test[];
-  constructor(private userService: UserService, private route: ActivatedRoute, private testService: TestService) { 
+  testPage:number=0;
+  constructor(private userService: UserService, private route: ActivatedRoute, private testService: TestService) {
     this.route.params.subscribe(params => {
       this.username = params.id;
     });
@@ -22,7 +23,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.userService.getUserByUsername(this.username).subscribe(u => this.user = u);
-    this.testService.getTestsForUser(this.username).subscribe(t => this.tests = t);
+    this.testService.getTestsForUser(this.username,this.testPage).subscribe(t => this.tests = t.content);
   }
 
 }

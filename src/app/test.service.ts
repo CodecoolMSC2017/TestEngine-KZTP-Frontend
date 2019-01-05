@@ -21,11 +21,11 @@ export class TestService {
   getPoolTests(page: number){
     return this.http.get<any>("/api/user/test/pool?page="+page);
   }
-  getTestsForUser(username: string):Observable<Test[]>{
-    return this.http.get<Test[]>("/api/user/tests/"+username +"/true");
+  getTestsForUser(username: string,page:number){
+    return this.http.get<any>("/api/user/tests/"+username +"/true?page=" + page);
   }
-  getPoolTestsForUser(username: string):Observable<Test[]>{
-    return this.http.get<Test[]>("/api/user/tests/"+username +"/false");
+  getPoolTestsForUser(username: string,page:number){
+    return this.http.get<any>("/api/user/tests/"+username +"/false?page=" + page);
   }
   getTest(id: number): Observable<Test>{
     return this.http.get<Test>("/api/test/"+id);
@@ -69,6 +69,10 @@ export class TestService {
 
   getLoggedUserCompletedTests(): Observable<UsersTest[]>{
     return this.http.get<UsersTest[]>("/api/user/teststaken");
+  }
+
+  getTestDetails(testId:number) {
+    return this.http.get<any>("/api/user/test/testdetails/" + testId);
   }
 
 }

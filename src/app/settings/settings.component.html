@@ -30,13 +30,15 @@
                 <div class="routerButton" routerLink="/testedit/{{selectedLiveTest.id}}">Edit</div>
                 <div class="routerButton" routerLink="/test/{{selectedLiveTest.id}}">Check</div>
                 <div class="routerButton" >Delete</div>
-                <br>
-                Times taken by people:
-                <br>
-                Average percentage:
-                <br>
-                <p *ngIf="selectedLiveTest.price > 0">Income:</p>
               </div>
+              <br>
+              <p>Times taken by people:</p>
+              <p>{{liveTimesTaken}}</p>
+              <p>Average percentage:</p>
+              <p>{{livePercentage}}</p>
+              <p>Income:</p>
+              <p *ngIf="selectedLiveTest.price == 0">Free test</p>
+              <p *ngIf="selectedLiveTest.price != 0">{{liveIncome}}</p>
             </div>
           </div>
         </td>
@@ -57,12 +59,10 @@
                   <div class="routerButton" >Delete</div>
                 </div>
                 <br>
-                {{selectedPoolTest.title}}
-                <br>
-                Times taken by people:
-                <br>
-                Average percentage:
-                <br>
+                <p>Times taken by people:</p>
+                <p>{{poolTimesTaken}}</p>
+                <p>Average percentage:</p>
+                <p>{{poolPercentage}}</p>
 
               </div>
           </div>
@@ -74,7 +74,7 @@
   <section id="content3">
     <div *ngIf = "completedTests">
       <div *ngFor = "let completedtest of completedTests">
-          {{completedtest.test.title}}
+          <p>{{completedtest.test.title}}   points:{{completedtest.actualPoints}}/{{completedtest.maxPoints}}   {{completedtest.percentage}}</p>
       </div>
     </div>
   </section>
