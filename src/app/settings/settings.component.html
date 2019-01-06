@@ -9,8 +9,24 @@
   <label for="tab3">Finished tests</label>
 
   <section id="content1">
-    {{user.username}} <br>
-    {{user.rank}}
+    <div id="userDetailsContainer">
+      <div>{{user.username}}</div>
+      <div>{{user.email}}</div>
+      <div>rank: {{user.rank}}</div>
+      <div>{{authority}}</div>
+    </div>
+    <div id="changePasswordContainer">
+      <button id="changePwButton" (click)="showHideChangePassword()"> Change password</button>
+      <form>
+        <label id="pwlabel1">Old password:</label>
+        <input type="password" id="pwinput1">
+        <label id="pwlabel2">New password:</label>
+        <input type="password" id="pwinput2">
+        <label id="pwlabel3">Confirm new password:</label>
+        <input type="password" id="pwinput3">
+        <button id="pwsubmitbutton" >Save</button>
+      </form>
+    </div>
   </section>
 
   <section id="content2">

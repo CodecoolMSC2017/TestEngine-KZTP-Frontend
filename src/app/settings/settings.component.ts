@@ -26,11 +26,19 @@ export class SettingsComponent implements OnInit {
   poolIncome:number;
   liveTimesTaken:number;
   poolTimesTaken:number;
+  authority:String;
+  changePasswordShow:boolean=false;
   constructor(private userService:UserService, private testService:TestService) { }
 
   ngOnInit() {
     this.userService.getLoggedUser().subscribe(u => {
       this.user = u;
+      if(u.authorities[0] == "ROLE_ADMIN") {
+        this.authority = "admin";
+      }
+      else {
+        this.authority = "user";
+      }
       this.testService.getTestsForUser(u.username,this.livePage).subscribe(t => {
         this.tests = t.content;
         this.selectedLiveTest = t.content[0];
@@ -70,6 +78,29 @@ export class SettingsComponent implements OnInit {
       this.poolTimesTaken = details.timesTaken;
       this.poolIncome = details.income;
     });
+  }
+
+  showHideChangePassword() {
+    if(!this.changePasswordShow) {
+      this.changePasswordShow = true;
+      document.getElementById('changePasswordContainer').className='fading';
+      document.getElementById('pwsubmitbutton').className='sliding';
+      var someArray = [1, 2, 3];
+      someArray.forEach((item, index) => {
+          document.getElementById('pwlabel'+ item).className='sliding';
+          document.getElementById('pwinput'+ item).className='sliding';
+      });
+    }
+    else {
+      this.changePasswordShow = false;
+      document.getElementById('changePasswordContainer').className='fadingUp';
+      document.getElementById('pwsubmitbutton').className='slidingUp';
+      var someArray = [1, 2, 3];
+      someArray.forEach((item, index) => {
+          document.getElementById('pwlabel'+ item).className='slidingUp';
+          document.getElementById('pwinput'+ item).className='slidingUp';
+      });
+    }
   }
 
 }

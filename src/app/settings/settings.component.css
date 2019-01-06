@@ -172,3 +172,155 @@ td {
 .buttonsContainer {
   text-align: center;
 }
+
+/* user info page */
+
+#pwinput1, #pwinput2, #pwinput3 {
+  margin:auto;
+  display:block;
+  visibility: hidden;
+}
+
+#changePwButton {
+  position: relative;
+  top:-40px;
+  height:40px;
+  width:120px;
+  background-color: gray;
+  border:none;
+  border-radius: 2px;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: fontawesome;
+  color: rgb(220, 229, 238);
+}
+
+#changePwButton:active {
+  outline: none;
+  border: none;
+}
+
+#changePwButton:focus{
+  outline: none;
+}
+
+
+#changePasswordContainer {
+  width:120px;
+  height:10px;
+  background-color: gray;
+  text-align: center;
+  padding-top: 40px;
+  margin:20px;
+  border-radius: 3px;
+}
+
+#pwlabel1,#pwlabel2,#pwlabel3 {
+  margin:0;
+  padding: 0;
+  visibility: hidden;
+  color:white;
+}
+
+#pwlabel1:hover,#pwlabel2:hover,#pwlabel3:hover {
+  cursor: auto;
+  color: white;
+}
+
+.fading {
+  animation: fade 1s linear forwards;
+  width: 480px !important;
+  height:250px !important;
+}
+
+.fadingUp {
+  animation:fadeUp 1s linear forwards;
+}
+
+.sliding {
+  animation: slide 1s linear forwards;
+}
+
+.slidingUp {
+  animation: slideUp 1s linear forwards;
+}
+
+#pwsubmitbutton {
+  visibility: hidden;
+}
+
+@keyframes fade {
+  0% {
+    height:10px;
+    width:120px;
+    background-color: #45eed7;
+  }
+  20%{
+    width:480px;
+    height: 10px;
+    background-color: #48d890;
+  }
+  100% {
+    transform: translateY(0);
+    height:250px;
+    background-color: #12b499;
+  }
+}
+
+@keyframes fadeUp {
+  0% {
+    transform: translateY(0);
+    height:250px;
+    width:480px;
+    background-color: #12b499;
+
+  }
+  20%{
+    height: 10px;
+    background-color: #48d890;
+
+  }
+  100% {
+    height:10px;
+    width:120px;
+    background-color: #45eed7;
+
+  }
+}
+
+
+
+@keyframes slide {
+  0% {
+    visibility: hidden;
+    transform: translateY(-120px);
+  }
+  60% {
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+  10% {
+    visibility: hidden;
+    transform: translateY(-60px);
+  }
+  100% {
+    visibility: hidden;
+    transform: translateY(-100px);
+  }
+}
+
+#userDetailsContainer {
+  margin:20px;
+
+}
