@@ -7,6 +7,8 @@ import { Observable } from 'rxjs';
 import { EditNews } from '../EditNews';
 import { TestreportService } from '../testreport.service';
 import { TestReport } from '../TestReport';
+import { TestService } from '../test.service';
+import { DeleteRequest } from '../DeleteRequest';
 
 @Component({
   selector: 'app-admin-tools',
@@ -26,7 +28,9 @@ export class AdminToolsComponent implements OnInit {
   totalPages:number;
   selectedNews: News;
   reportedTests:TestReport[];
-  constructor(private adminTools: AdminService, private newsService: NewsService,private testReportService:TestreportService) {
+  deleteRequests:DeleteRequest[];
+  requestPage:number=0;
+  constructor(private adminTools: AdminService, private newsService: NewsService,private testReportService:TestreportService,private testService:TestService) {
     this.newNews = new NewNews();
   }
 
@@ -36,6 +40,7 @@ export class AdminToolsComponent implements OnInit {
       this.totalPages = n.totalPages;
     });
     this.testReportService.getReportedTests(this.reportsPage,this.reportsPageSize).subscribe(any => this.reportedTests = any.content);
+    this.testService.getDeleteRequests(this.requestPage).subscribe(any => this.deleteRequests =any);
   }
 
   createNews(){
@@ -71,5 +76,9 @@ export class AdminToolsComponent implements OnInit {
   resolveReport(report:TestReport) {
 
     this.testReportService.resolveReport(report.id).subscribe(any => this.reportedTests[this.reportedTests.indexOf(report)].solved=true);
+  }
+
+  deleteTest(testId:number) {
+    this.testService.deleteTest(testId).subscribe();
   }
 }

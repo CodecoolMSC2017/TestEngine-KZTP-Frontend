@@ -75,4 +75,16 @@ export class TestService {
     return this.http.get<any>("/api/user/test/testdetails/" + testId);
   }
 
+  deleteTest(testId:number) {
+    return this.http.post<any>("/api/admin/test/delete/" + testId,null);
+  }
+
+  requestTestDelete(testId:number) {
+    return this.http.post<any>("/api/test/deleterequest/" + testId,null);
+  }
+
+  getDeleteRequests(page:number) {
+    return this.http.get<any>("/api/admin/deleterequests/all?page=" + page);
+  }
+
 }
