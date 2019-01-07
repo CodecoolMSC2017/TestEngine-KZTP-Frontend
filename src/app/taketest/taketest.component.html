@@ -1,13 +1,6 @@
 <div *ngIf="test" id = "testDiv">
   <h1>{{test.title}}</h1>
 
- <!--  <div id = "questionsDiv" *ngFor = "let question of questions;let i = index">
-    <h2>{{question.text}}</h2>
-    <div id = "choicesDiv" *ngFor = "let choice of question.choices">
-      <input type ="radio" [name] = i [value] = choice.text (change) = "setChanged($event)" >{{choice.text}}
-    </div>
-  </div>
- -->
   <div id="previewside"><h2 *ngIf="test.title">{{test.title}}</h2>
     <div  id = "questions" *ngFor ="let question of questions;let i = index" >
       <table>
@@ -20,9 +13,10 @@
         </td>
       </table>
     </div>
+    <input id="submit" type = "button" value="Done" (click) = "takeTest()">
   </div>
+  <br>
 
-  <input type = "button" value="Done" (click) = "takeTest()">
   <div id = "resultsDiv" *ngIf = "showResult">
     Result: {{testResult.percentage}} %
     <div *ngIf = "testTaken">
