@@ -324,3 +324,43 @@ td {
   margin:20px;
 
 }
+
+#username {
+  font-size: 22px;
+  font-weight: bold;
+  padding-bottom:0px;
+}
+
+#email {
+  font-size: 12px;
+  padding:0;
+}
+
+#rank {
+  margin-top:20px;
+}
+
+#progresscontainer {
+  height:21px;
+  width:240px;
+  background-color: lightgray;
+  border-radius: 5px;
+}
+
+#progressbar {
+  height:21px;
+  background-color: #48d890;
+  border-radius: 5px;
+  text-align: right;
+}
+
+#currentrank,#nextrank {
+  display: inline;
+  font-size: 10px;
+}
+
+#nextrank {
+  position: relative;
+  left:200px;
+
+}

@@ -15,6 +15,10 @@ export class UserService {
   }
 
   getLoggedUser(): Observable<User>{
-    return this.http.get<User>("/api/user/mysettings")
+    return this.http.get<User>("/api/user/mysettings");
+  }
+
+  getUserProgress() {
+    return this.http.get<any>("/api/user/rank/progress");
   }
 }

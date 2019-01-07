@@ -28,11 +28,29 @@ export class SettingsComponent implements OnInit {
   poolTimesTaken:number;
   authority:String;
   changePasswordShow:boolean=false;
+  userProgress:number;
+  progressBarPercent:number;
+  nextRank:String;
   constructor(private userService:UserService, private testService:TestService) { }
 
   ngOnInit() {
     this.userService.getLoggedUser().subscribe(u => {
       this.user = u;
+      this.userService.getUserProgress().subscribe((any) => {
+        this.userProgress = any;
+        if(u.rank == "newbie") {
+          this.nextRank ="user";
+          this.progressBarPercent = Math.round(this.userProgress/15 * 100);
+        }
+        else if (u.rank == "user"){
+          this.nextRank = "elite";
+          this.progressBarPercent = this.userProgress;
+        }
+        else {
+          this.progressBarPercent = this.userProgress;
+        }
+      });
+
       if(u.authorities[0] == "ROLE_ADMIN") {
         this.authority = "admin";
       }
@@ -102,5 +120,6 @@ export class SettingsComponent implements OnInit {
       });
     }
   }
+
 
 }

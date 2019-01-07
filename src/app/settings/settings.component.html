@@ -10,10 +10,17 @@
 
   <section id="content1">
     <div id="userDetailsContainer">
-      <div>{{user.username}}</div>
-      <div>{{user.email}}</div>
-      <div>rank: {{user.rank}}</div>
-      <div>{{authority}}</div>
+      <div id="username">{{user.username}}</div>
+      <div id="email">{{user.email}}</div>
+      <div id="rank">rank: {{user.rank}}</div>
+      <div>Rank progress
+        <br>
+        <div id="currentrank">{{user.rank}}</div><div id="nextrank">{{nextRank}}</div>
+        <div id="progresscontainer">
+          <div id="progressbar">{{progressBarPercent}}%</div>
+        </div>
+      </div>
+      <div id="authority">authority: {{authority}}</div>
     </div>
     <div id="changePasswordContainer">
       <button id="changePwButton" (click)="showHideChangePassword()"> Change password</button>
