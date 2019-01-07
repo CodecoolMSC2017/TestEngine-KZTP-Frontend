@@ -41,13 +41,16 @@ export class SettingsComponent implements OnInit {
         if(u.rank == "newbie") {
           this.nextRank ="user";
           this.progressBarPercent = Math.round(this.userProgress/15 * 100);
+          document.getElementById("progressbar").style.width=this.progressBarPercent + "%";
         }
         else if (u.rank == "user"){
           this.nextRank = "elite";
           this.progressBarPercent = this.userProgress;
+          document.getElementById("progressbar").style.width=this.progressBarPercent + "%";
         }
         else {
           this.progressBarPercent = this.userProgress;
+          document.getElementById("progressbar").style.width=this.progressBarPercent + "%";
         }
       });
 
@@ -59,13 +62,17 @@ export class SettingsComponent implements OnInit {
       }
       this.testService.getTestsForUser(u.username,this.livePage).subscribe(t => {
         this.tests = t.content;
-        this.selectedLiveTest = t.content[0];
-        this.getTestDetailsLive(t.content[0].id);
+        if(this.tests.length > 0) {
+          this.selectedLiveTest = t.content[0];
+          this.getTestDetailsLive(t.content[0].id);
+        }
       });
       this.testService.getPoolTestsForUser(u.username,this.poolPage).subscribe(t => {
         this.pooltests = t.content;
-        this.selectedPoolTest = t.content[0];
-        this.getTestDetailsPool(t.content[0].id);
+        if(this.pooltests.length > 0) {
+          this.selectedPoolTest = t.content[0];
+          this.getTestDetailsPool(t.content[0].id);
+        }
       });
       this.testService.getLoggedUserCompletedTests().subscribe(t => this.completedTests = t);
     });
