@@ -17,6 +17,7 @@ import { AdminGuard } from './admin.guard';
 import { TesteditComponent } from './testedit/testedit.component';
 import { ActivationComponent } from './activation/activation.component';
 import { ActivateComponent } from './activate/activate.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -33,6 +34,7 @@ const routes: Routes = [
   {path: 'admintools', component: AdminToolsComponent, canActivate: [AdminGuard]},
   {path: 'activation',component: ActivationComponent},
   {path: 'activate',component: ActivateComponent},
+  {path: 'resetpw',component: PasswordResetComponent},
   {path: '**', redirectTo: '/home' ,pathMatch:'full'}
 ];
 

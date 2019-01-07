@@ -22,6 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TesteditComponent } from './testedit/testedit.component';
 import { ActivationComponent } from './activation/activation.component';
 import { ActivateComponent } from './activate/activate.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ActivateComponent } from './activate/activate.component';
     TestReportDialog,
     TesteditComponent,
     ActivationComponent,
-    ActivateComponent
+    ActivateComponent,
+    PasswordResetComponent
   ],
   entryComponents:[
     TestReportDialog

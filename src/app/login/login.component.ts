@@ -2,6 +2,7 @@ import { Component, OnInit, NgZone } from '@angular/core';
 import { LoginDetails } from '../login-details';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-login',
@@ -12,9 +13,13 @@ export class LoginComponent implements OnInit {
 
   loginDetails: LoginDetails = new LoginDetails();
 
+  showPasswordResetError: boolean = false;
+
   showError: boolean = false;
 
   errorMessage: string;
+
+  passwordResetEmail: String;
 
   handleAuthSuccess = user => {
     this.ngZone.run(() =>{
@@ -42,7 +47,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private router: Router,
-    private ngZone: NgZone) {
+    private ngZone: NgZone,
+    private userService: UserService) {
 
       this.authService.getAuth().subscribe();
 
@@ -69,5 +75,21 @@ export class LoginComponent implements OnInit {
       return result;
     }
   }
+
+  showPassworReset(){
+    var passwordResetDiv = document.getElementById("passwordReset");
+    passwordResetDiv.classList.remove('hidden');
+  }
+
+  sendPasswordResetEmail(){
+    console.log(this.passwordResetEmail);
+    this.userService.sendPasswordResetEmail(this.passwordResetEmail).subscribe(r => {
+      this.router.navigate(['login']);
+    },(error)=>{
+      this.showPasswordResetError = true;
+      this.showPasswordResetError = error.error.message;
+    })
+  }
+
 
 }

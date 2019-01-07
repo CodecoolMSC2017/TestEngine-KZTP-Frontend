@@ -10,8 +10,15 @@
 			</div>
 			<div>
 				<input type="submit" (click)="getAuth()" value="Log in" />
-				<a href="#">Lost your password?</a>
+				<a (click) = "showPassworReset()">Lost your password?</a>
 				<a routerLink = "/register">Register</a>
+			</div>
+			<div id = "passwordReset" class="hidden">
+				<input [(ngModel)] = "passwordResetEmail" [ngModelOptions]="{standalone: true}" type="text" />
+				<input type="submit" (click)="sendPasswordResetEmail()" value="Send email" />
+				<span class="error" *ngIf="showPassworResetError">
+					{{passwordResetErrorMessage}}
+				</span>
 			</div>
 		</form><!-- form -->
 		<div class="button">

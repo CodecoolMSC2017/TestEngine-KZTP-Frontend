@@ -253,3 +253,7 @@ form:after {
 .error a:hover {
   cursor: pointer;
 }
+
+.hidden{
+	display: none;
+}
