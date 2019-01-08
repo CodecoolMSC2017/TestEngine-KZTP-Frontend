@@ -51,8 +51,7 @@
               <div class="buttonsContainer">
                 <div *ngIf="user.authorities[0] ='ROLE_ADMIN'" class="routerButton" routerLink="/testedit/{{selectedLiveTest.id}}">Edit</div>
                 <div class="routerButton" routerLink="/test/{{selectedLiveTest.id}}">Check</div>
-                <div *ngIf="user.authorities[0] =='ROLE_ADMIN'" class="routerButton" (click)="deleteTest(selectedLiveTest.id)" >Delete</div>
-                <div *ngIf="user.authorities[0] !='ROLE_ADMIN'" class="routerButton" (click)="requestTestDelete(selectedLiveTest.id)">Delete</div>
+                <div class="routerButton" (click)="requestTestDelete(selectedLiveTest.id)">Delete</div>
               </div>
               <br>
               <p>Times taken by people:</p>
@@ -79,8 +78,7 @@
                 <div class="buttonsContainer">
                   <div class="routerButton" routerLink="/testedit/{{selectedPoolTest.id}}">Edit</div>
                   <div class="routerButton" routerLink="/test/{{selectedPoolTest.id}}">Check</div>
-                  <div *ngIf="user.authorities[0] =='ROLE_ADMIN'" class="routerButton" (click)="deleteTest(selectedPoolTest.id)" >Delete</div>
-                <div *ngIf="user.authorities[0] !='ROLE_ADMIN'" class="routerButton" (click)="requestTestDelete(selectedPoolTest.id)">Delete</div>
+                <div class="routerButton" (click)="requestTestDelete(selectedPoolTest.id)">Delete</div>
                 </div>
                 <br>
                 <p>Times taken by people:</p>

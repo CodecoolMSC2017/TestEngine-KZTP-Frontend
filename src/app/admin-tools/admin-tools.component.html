@@ -75,8 +75,6 @@
     <div id="reportBar" class="headerbar">
       <div id="reportTitle"> Test title</div>
       <div id="reportingUser">User</div>
-      <div id="resolveButton" >Resolve</div>
-      <div id="solved">Status</div>
     </div>
     <div *ngFor="let request of deleteRequests">
       <div id="reportBar">
@@ -86,8 +84,8 @@
         <div id="reportingUser">
           {{request.test.creator.username}}
         </div>
-        <div id="resolveButton" (click)="deleteTest(request.test.id)">
-          <i class="fa fa-pencil-square-o"></i>
+        <div id="resolveButton" (click)="deleteTest(request)">
+          Delete test
         </div>
       </div>
     </div>

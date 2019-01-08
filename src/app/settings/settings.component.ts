@@ -128,10 +128,6 @@ export class SettingsComponent implements OnInit {
     }
   }
 
-  deleteTest(testId:number) {
-    this.testService.deleteTest(testId).subscribe();
-  }
-
   requestTestDelete(testId:number) {
     this.testService.requestTestDelete(testId).subscribe();
   }

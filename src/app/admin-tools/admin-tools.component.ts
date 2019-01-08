@@ -9,6 +9,7 @@ import { TestreportService } from '../testreport.service';
 import { TestReport } from '../TestReport';
 import { TestService } from '../test.service';
 import { DeleteRequest } from '../DeleteRequest';
+import { Test } from '../Test';
 
 @Component({
   selector: 'app-admin-tools',
@@ -40,7 +41,7 @@ export class AdminToolsComponent implements OnInit {
       this.totalPages = n.totalPages;
     });
     this.testReportService.getReportedTests(this.reportsPage,this.reportsPageSize).subscribe(any => this.reportedTests = any.content);
-    this.testService.getDeleteRequests(this.requestPage).subscribe(any => this.deleteRequests =any);
+    this.testService.getDeleteRequests(this.requestPage).subscribe(any => this.deleteRequests =any.content);
   }
 
   createNews(){
@@ -78,7 +79,9 @@ export class AdminToolsComponent implements OnInit {
     this.testReportService.resolveReport(report.id).subscribe(any => this.reportedTests[this.reportedTests.indexOf(report)].solved=true);
   }
 
-  deleteTest(testId:number) {
-    this.testService.deleteTest(testId).subscribe();
+  deleteTest(request:DeleteRequest) {
+    this.testService.deleteTest(request.test.id).subscribe(any =>
+      this.deleteRequests.splice(this.deleteRequests.indexOf(request,1))
+    );
   }
 }

@@ -169,6 +169,10 @@ td {
   font-size: 12px;
 }
 
+.routerButton:hover {
+  cursor: pointer;
+}
+
 .buttonsContainer {
   text-align: center;
 }
