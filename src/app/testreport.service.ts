@@ -8,8 +8,8 @@ export class TestreportService {
 
   constructor(private http: HttpClient) { }
 
-  reportTest(testId:number,description:String){
-    return this.http.post<String>("/api/user/test/report/"+ testId,description);
+  reportTest(testId:number,description:String,userdescription:String){
+    return this.http.post<String>("/api/user/test/report/"+ testId + "?description=" + description + "&userdescription=" + userdescription,null);
   }
 
   getReportedTests(page:number,pageSize:number) {

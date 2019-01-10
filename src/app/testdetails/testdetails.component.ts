@@ -76,8 +76,8 @@ export class TestdetailsComponent implements OnInit {
 })
 export class TestReportDialog {
 
-  result:String="language";
-  textinput:false;
+  description:String="language";
+  userdescription:String="";
 
   constructor(
     public dialogRef: MatDialogRef<TestReportDialog>,
@@ -88,7 +88,7 @@ export class TestReportDialog {
   }
 
   onSendReportClick() {
-    this.testreportService.reportTest(this.data.testId,this.result).subscribe(any => console.log(any));
+    this.testreportService.reportTest(this.data.testId,this.description,this.userdescription).subscribe(any => console.log(any));
     this.dialogRef.close();
   }
 

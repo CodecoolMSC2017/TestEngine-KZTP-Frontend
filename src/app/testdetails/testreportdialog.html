@@ -1,22 +1,22 @@
 <h4>Report Test</h4>
 <div >
-  <p>What's the cause of the report?</p>
+  <p>What's the type of the report?</p>
 </div>
 <form >
-  <input [(ngModel)]="result" type="radio" name="language" [value]="'foulLanguage'" >
+  <input [(ngModel)]="description" type="radio" name="language" (click)="textinput=true" [value]="'foulLanguage'" >
   <label for="language">Test contains foul language.</label>
   <br>
-  <input [(ngModel)]="result" type="radio" name="incorrect" [value]="'wrongAnswer'" >
+  <input [(ngModel)]="description" type="radio" name="incorrect" (click)="textinput=true" [value]="'wrongAnswer'" >
   <label for="incorrect">There is an error with answers.</label>
   <br>
-  <input [(ngModel)]="result" type="radio" name="question" [value]="'wrongQuestion'" >
+  <input [(ngModel)]="description" type="radio" name="question" (click)="textinput=true" [value]="'wrongQuestion'" >
   <label for="question">There is a problem with the question.</label>
   <br>
-  <input [(ngModel)]="result" type="radio" name="other" (click)="textinput=true" [value]="'other'">
+  <input [(ngModel)]="description" type="radio" name="other" (click)="textinput=true" [value]="'other'">
   <label for="other">Other.</label>
   <br>
   <label *ngIf="textinput"  for="othertext">Please define your problem: </label>
-  <input [(ngModel)]="result" *ngIf="textinput" type="text" name="othertext" >
+  <input [(ngModel)]="userdescription" *ngIf="textinput" type="text" name="othertext" >
   <div >
     <button type="submit"  (click)="onSendReportClick()">Send report</button>
     <button  (click)="onCancelClick()">Cancel</button>

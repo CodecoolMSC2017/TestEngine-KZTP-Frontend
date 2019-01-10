@@ -41,10 +41,18 @@
 
   </section>
 
+
   <section id="content3" class="tab-content">
+    <div id="fulldesccontainer" *ngIf="fullDescription" class="headerbar">Full description text:
+      <div id="fulldescription">
+        {{fullDescription}}
+      </div>
+    </div>
+
     <div id="reportBar" class="headerbar">
       <div id="reportTitle">Reported test</div>
       <div id="reportCause">Cause</div>
+      <div id="reportDescription">Description</div>
       <div id="reportingUser">User</div>
       <div id="resolveButton" >Resolve</div>
       <div id="solved">Status</div>
@@ -56,6 +64,9 @@
         </div>
         <div id="reportCause">
           {{report.description}}
+        </div>
+        <div id="reportDescription" (click)="fullDescription = report.userDescription">
+          {{report.userDescription}}
         </div>
         <div id="reportingUser">
           {{report.reporter.username}}

@@ -109,6 +109,10 @@ label .fa {
     display: none;
   }
 
+  #content3 #reportBar #reportDescription {
+    display: none;
+  }
+
   .tab_container {
     width: 98%;
   }
@@ -137,9 +141,22 @@ label .fa {
 
 /* Reports styles */
 
+#fulldesccontainer {
+  background-color: #c7f7ff;
+  padding:10px;
+  border-radius: 1px;
+}
+
+#fulldescription {
+  background-color: white;
+  border-radius: 3px;
+  font-weight: normal;
+
+}
+
 #reportBar {
   width: 100%;
-  background-color:rgb(199, 247, 255);
+  background-color:#c7f7ff;
   margin:3px;
   padding:5px;
 }
@@ -163,6 +180,15 @@ label .fa {
   overflow: hidden;
   white-space: nowrap;
 }
+
+#reportDescription {
+  width:110px;
+  display:inline-block;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
 
 #reportingUser {
   margin-left: 5px;
