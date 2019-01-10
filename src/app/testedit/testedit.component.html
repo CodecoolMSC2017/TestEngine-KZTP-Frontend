@@ -13,6 +13,9 @@
       <br>
       <tr>A <input name="question.{{i}}.answer.text" [(ngModel)]="question.answer.text"></tr>
      </table>
+     <span id="infoMessage" [ngStyle]="{'color': isError ? 'red' : 'green'}">
+      {{message}}
+    </span>
      <input type="submit" value="Save changes" (click)="editTest()">
  </form>
 

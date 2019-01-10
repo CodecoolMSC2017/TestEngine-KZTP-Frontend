@@ -15,6 +15,9 @@ export class TesteditComponent implements OnInit {
   testId:number;
   test:Test;
   questions:Question[];
+  message: String;
+  showMessage: boolean = false;
+  isError: boolean = false;
 
   constructor(private testService:TestService,private route: ActivatedRoute,private testeditService:TesteditService) {
     this.route.params.subscribe(params => {
@@ -29,7 +32,16 @@ export class TesteditComponent implements OnInit {
   }
 
   editTest() {
-    this.testeditService.editTest(this.testId,this.questions).subscribe();
+    this.testeditService.editTest(this.testId,this.questions).subscribe(()=>{
+      this.showMessage= true;
+      this.isError = false;
+      this.message = "Test edited!";
+    },
+    (error)=>{
+      this.showMessage= true;
+      this.isError = true;
+      this.message = error.error.message;
+    });
   }
 
 }
